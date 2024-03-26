@@ -12,15 +12,40 @@ public class Alumno {
     private String nombre;
     private String rut;
     private int creditos;
-
-    public Alumno(String nombre, String rut, int creditos) {
+    private Malla malla;
+    
+    public Alumno(String nombre, String rut, int creditos,Malla malla) {
         this.nombre = nombre;
         this.rut = rut;
         this.creditos = creditos;
+        this.malla=malla;
+    }
+    public int calcularCreditosCursados() {
+        int creditosCursados = 0;
+        for (Asignatura asignatura : malla.getListaAsignaturas()) {
+            if (asignatura.getEstado()) { 
+                creditosCursados += asignatura.getCreditos();
+            }
+        }
+        return creditosCursados;
+    }
+    
+    public int calcularCreditosMalla(){
+        int creditosMalla = 0;
+        for (Asignatura asignatura : malla.getListaAsignaturas()) {
+            
+            creditosMalla += asignatura.getCreditos();
+            
+        }
+        return creditosMalla;
     }
 
     public String getNombre() {
         return nombre;
+    }
+
+    public Malla getMalla() {
+        return malla;
     }
 
     public String getRut() {
@@ -29,6 +54,10 @@ public class Alumno {
 
     public int getCreditos() {
         return creditos;
+    }
+
+    public void setMalla(Malla malla) {
+        this.malla = malla;
     }
 
     public void setNombre(String nombre) {
