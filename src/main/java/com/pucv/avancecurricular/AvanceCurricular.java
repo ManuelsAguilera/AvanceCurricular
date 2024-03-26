@@ -26,7 +26,7 @@ public class AvanceCurricular {
             opcion=scan.nextInt();
             switch(opcion){
                 case 1:
-                    //agregar metodos
+                    //falta clases y metodos
                     break;
                 case 2:
                     break;
