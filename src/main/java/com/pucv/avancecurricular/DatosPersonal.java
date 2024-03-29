@@ -54,10 +54,10 @@ public class DatosPersonal {
         return mapaPersonal.get(rut);
     }
     
-    // Remueve un valor alumno del hashmap, luego lo guarda como null, en caso de querer sobreescribir.
+    // Remueve el valor y key de el hashmap alumnos
     public boolean removeAlumno(String rut) {
         if (mapaPersonal.containsKey(rut))
-            mapaPersonal.remove(rut, null); //if it exists it removes
+            mapaPersonal.remove(rut); //if it exists it removes
         
         return true;
     }

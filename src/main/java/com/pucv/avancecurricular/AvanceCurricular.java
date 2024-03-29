@@ -22,10 +22,9 @@ public class AvanceCurricular {
             System.out.println("*********************************");
             System.out.println("* 1.- Administrar mallas        *");
             System.out.println("* 2.- Agregar alumno            *");
-            System.out.println("* 3.- Eliminar alumno           *");
-            System.out.println("* 4.- Ver alumnos               *");
-            System.out.println("* 5.- Administrar avance alumno.*");
-            System.out.println("* 6.- Cargar datos hardcoded    *");
+            System.out.println("* 3.- Ver alumnos               *");
+            System.out.println("* 4.- Administrar avance alumno.*");
+            System.out.println("* 5.- Cargar datos hardcoded    *");
             System.out.println("* 0.- Salir                     *");
             System.out.println("*********************************");
             
@@ -43,9 +42,6 @@ public class AvanceCurricular {
                     System.out.println("para agregar un alumno primero debe crearse una malla");
                 break;
             case 3:
-                System.out.println("ingrese rut sin puntos y sin digito verificador del alumno");
-                break;
-            case 4:
                 System.out.println("Lista de alumnos:");
                 for (Alumno alumno : datos.getAlumnos()) {
                     mostrarAlumno(alumno);
@@ -53,14 +49,15 @@ public class AvanceCurricular {
                 System.out.println("-----------------------------");
 
                 break;
-            case 5:
+            case 4:
                 System.out.println("ingrese rut del alumno ");
                 String rut = scan.next();
                 administrarAvance(scan,datos,rut);    
                 break;
-            case 6:
+            case 5:
                 System.out.println("Datos Cargados");
                 cargarDatos(datos);
+            
             default:
                 System.out.println("ingrese una opcion correcta");
             }
@@ -102,6 +99,7 @@ public class AvanceCurricular {
             System.out.println("* 2.- Marcar asignatura como no aprobada.*");
             System.out.println("* 3.- Ver asignaturas y su estado.       *");
             System.out.println("* 4.- Ver avance alumno.                 *");
+            System.out.println("* 5.- Eliminar alumno.                   *");
             System.out.println("* 0.- Salida.                            *");
             System.out.println("******************************************");
             
@@ -131,6 +129,14 @@ public class AvanceCurricular {
                 System.out.println("El alumno " + alumno.getNombre() + " ha cursado " + creditosCursados + " creditos de " + creditosMalla + " creditos en su malla.");
                 
                 break;
+            case 5:
+                if (datos.removeAlumno(rut))
+                {
+                    System.out.println("Removido correctamente\nVolviendo menu principal..");
+                    opcion=SALIDA;
+                }
+                else
+                    System.out.println("No existe el alumno, o hubo un error en el ingreso");
             }
     
         }while (opcion!=SALIDA);
