@@ -92,7 +92,7 @@ public class AvanceCurricular {
                     datos.marcarReprobado(rut, inputString);
                     break;
                 case 3:
-                    
+                    // falta ver asignaturas y su estado
                     break;
                 case 4:
                     datos.calcularAvance(rut);

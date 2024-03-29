@@ -136,7 +136,7 @@ public class DatosPersonal {
             Alumno alumno = mapaPersonal.get(rut);
             int creditosCursados = alumno.calcularCreditosCursados();
             int creditosMalla = alumno.calcularCreditosMalla();
-            System.out.println("El alumno " + alumno.getNombre() + " ha cursado " + creditosCursados + " créditos de " + creditosMalla + " créditos en su malla.");
+            System.out.println("El alumno " + alumno.getNombre() + " ha cursado " + creditosCursados + " creditos de " + creditosMalla + " creditos en su malla.");
         }
     }
     
