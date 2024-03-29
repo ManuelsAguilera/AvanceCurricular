@@ -80,12 +80,12 @@ public class AvanceCurricular {
         mallaIng.agregarAsignatura("Economia","Camilo",4,false);
         datos.addMalla(mallaDerecho);
         
-        datos.addAlumno(new Alumno("Miguel","21556",0,mallaIng));
-        datos.addAlumno(new Alumno("Martin","21600",0,mallaIng));
-        datos.addAlumno(new Alumno("Alexandra","22444",0,mallaDerecho));
-        datos.addAlumno(new Alumno("Andres","20777",0,mallaDerecho));
-        datos.addAlumno(new Alumno("Juan","23441",0,mallaDerecho));
-        datos.addAlumno(new Alumno("Juana","22556",0,mallaDerecho));
+        datos.addAlumno(new Alumno("Miguel","21556",mallaIng));
+        datos.addAlumno(new Alumno("Martin","21600",mallaIng));
+        datos.addAlumno(new Alumno("Alexandra","22444",mallaDerecho));
+        datos.addAlumno(new Alumno("Andres","20777",mallaDerecho));
+        datos.addAlumno(new Alumno("Juan","23441",mallaDerecho));
+        datos.addAlumno(new Alumno("Juana","22556",mallaDerecho));
     }
     
     private static void administrarAvance(Scanner scan, DatosPersonal datos, String rut){
@@ -197,9 +197,9 @@ public class AvanceCurricular {
         String rut=scan.next();
         System.out.println("ingrese el nombre o identificador de la malla");
         String mallaId = scan.next();
-        int creditos = 0;
         
-        return datos.addAlumno(nombre, rut,creditos, mallaId);
+        
+        return datos.addAlumno(nombre, rut, mallaId);
     }
     
     private static boolean anadirAsignatura(Scanner scan,DatosPersonal datos){
@@ -240,7 +240,7 @@ public class AvanceCurricular {
     {
         System.out.println("Nombre: " + alumno.getNombre());
         System.out.println("RUT: " + alumno.getRut());
-        System.out.println("Créditos: " + alumno.getCreditos());
+        System.out.println("Créditos: " + alumno.calcularCreditosCursados());
     }
 }
 

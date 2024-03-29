@@ -24,12 +24,12 @@ public class DatosPersonal {
     }
     
     //Añade un alumno al HashMap, solo si es que se le puede asociar una malla a este.
-    public boolean addAlumno(String nombre, String rut, int creditos, String mallaId) {
+    public boolean addAlumno(String nombre, String rut, String mallaId) {
         
         if (mallasDisp.isEmpty())
             return false; 
         
-        Alumno newAlumno= new Alumno(nombre, rut, creditos, mallasDisp.get(mallaId));
+        Alumno newAlumno= new Alumno(nombre, rut, mallasDisp.get(mallaId));
         mapaPersonal.putIfAbsent(rut, newAlumno);
         
         return true;
