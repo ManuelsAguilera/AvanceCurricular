@@ -34,10 +34,18 @@ public class DatosPersonal {
         return true;
     }
     
+    public Alumno getAlumno(String rut){
+        
+        if (!mapaPersonal.containsKey(rut))
+                return null;
+        
+        return mapaPersonal.get(rut);
+    }
+    
     // Remueve un valor alumno del hashmap, luego lo guarda como null, en caso de querer sobreescribir.
     public boolean removeAlumno(String rut) {
         if (mapaPersonal.containsKey(rut))
-            mapaPersonal.remove(rut,null); //if it exists it removes
+            mapaPersonal.remove(rut, null); //if it exists it removes
         
         return true;
     }
@@ -45,7 +53,7 @@ public class DatosPersonal {
     //Añade una instancia malla, a nuestro mapa de mallas asociandolo a un nombre
     //ej : "Ingenieria civil informatica 2020"::new Malla()
     public boolean addMalla(String mallaId) {
-        mallasDisp.put(mallaId,new Malla(mallaId));
+        mallasDisp.put(mallaId, new Malla(mallaId));
         
         return true;
     }

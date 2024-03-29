@@ -1,4 +1,5 @@
 package com.pucv.avancecurricular;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /*
@@ -59,7 +60,7 @@ public class AvanceCurricular {
         }while(opcion!=SALIDA);   
     }
     
-    private static void administrarAvance(Scanner scan,DatosPersonal datos,String rut){
+    private static void administrarAvance(Scanner scan, DatosPersonal datos, String rut){
         int opcion;
         
         do{
@@ -73,23 +74,23 @@ public class AvanceCurricular {
             System.out.println("* 0.- Salida.                            *");
             System.out.println("******************************************");
             
-            opcion=scan.nextInt();
-            String inputString="";
+            opcion = scan.nextInt();
+            String inputString = "";
             
             switch(opcion){
             
             case 1:
                 System.out.println("ingrese nombre asignatura");
                 inputString = scan.next();;
-                datos.marcarAprobado(rut,inputString);
+                datos.marcarAprobado(rut, inputString);
                 break;
             case 2:
                 System.out.println("ingrese nombre asignatura");
-                inputString = scan.next();;
+                inputString = scan.next();
                 datos.marcarNoAprobado(rut, inputString);
                 break;
             case 3:
-                    // falta ver asignaturas y su estado
+                verAvanceAlumno(datos, rut);
                 break;
             case 4:
                 datos.calcularAvance(rut);
@@ -103,18 +104,19 @@ public class AvanceCurricular {
     {
         int opcion;
         do{
-        System.out.println("******************************");
-        System.out.println("*           Mallas           *");
-        System.out.println("******************************");
-        System.out.println("* 1.- Agregar malla.         *");
-        System.out.println("* 2.- Agregar asignaturas.   *");
-        System.out.println("* 3.- Quitar malla.          *");
-        System.out.println("* 4.- Ver mallas.            *");
-        System.out.println("* 0.- Salir.                 *");
-        System.out.println("******************************");
+            System.out.println("******************************");
+            System.out.println("*           Mallas           *");
+            System.out.println("******************************");
+            System.out.println("* 1.- Agregar malla.         *");
+            System.out.println("* 2.- Agregar asignaturas.   *");
+            System.out.println("* 3.- Quitar malla.          *");
+            System.out.println("* 4.- Ver mallas.            *");
+            System.out.println("* 0.- Salir.                 *");
+            System.out.println("******************************");
         
-        opcion=scan.nextInt();
-        String inputString="";
+            opcion = scan.nextInt();
+            String inputString = "";
+            
             switch(opcion){
             
             case 1:
@@ -132,12 +134,13 @@ public class AvanceCurricular {
                 System.out.println("Ingrese nombre de malla a eliminar");
                 inputString = scan.next();
 
-                    if (!datos.removeMalla(inputString))
+                if (!datos.removeMalla(inputString))
                     System.out.println("la malla no existe");
                 break;
             case 4:
                 verMallas(datos);
                 break;
+                
             default:
                 System.out.println("ingrese una opcion correcta");
             }
@@ -174,4 +177,21 @@ public class AvanceCurricular {
     {
         System.out.println(datos.getMallas());
     }
+    
+    private static void verAvanceAlumno(DatosPersonal datos, String rut) {
+        
+        Malla malla = datos.getAlumno(rut).getMalla();
+        
+        for (Asignatura a : malla.getListaAsignaturas()) {
+            System.out.print("Ramo: " + a.getRamo() + ", Creditos: " + a.getCreditos());
+            
+            if (a.getEstado())
+                System.out.println(", Estado: Aprovado");
+            else
+                System.out.println(", Estado: No Aprovado");
+                 
+            System.out.println(", Profesor: " + a.getProfesor());
+        }
+    }
 }
+
