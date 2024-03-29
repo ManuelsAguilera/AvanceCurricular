@@ -46,7 +46,12 @@ public class AvanceCurricular {
                 System.out.println("ingrese rut sin puntos y sin digito verificador del alumno");
                 break;
             case 4:
-                datos.mostrarAlumnos();
+                System.out.println("Lista de alumnos:");
+                for (Alumno alumno : datos.getAlumnos()) {
+                    mostrarAlumno(alumno);
+                }
+                System.out.println("-----------------------------");
+
                 break;
             case 5:
                 System.out.println("ingrese rut del alumno ");
@@ -223,6 +228,13 @@ public class AvanceCurricular {
                  
             System.out.println(", Profesor: " + a.getProfesor());
         }
+    }
+    
+    private static void mostrarAlumno(Alumno alumno)
+    {
+        System.out.println("Nombre: " + alumno.getNombre());
+        System.out.println("RUT: " + alumno.getRut());
+        System.out.println("Créditos: " + alumno.getCreditos());
     }
 }
 

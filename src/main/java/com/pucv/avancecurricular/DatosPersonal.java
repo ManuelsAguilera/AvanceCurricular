@@ -1,5 +1,6 @@
 package com.pucv.avancecurricular;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.TreeMap;
@@ -133,17 +134,9 @@ public class DatosPersonal {
             }
         }
     }
-    
-    //Devuelve una set o arraylist con informacion de todos los alumnos.
-    /*****************************************IMPORTANTE HAY QUE CAMBIARLO A QUE SEA UN GET EN VEZ DE TERMINAL*/
-    public void mostrarAlumnos() {
-        System.out.println("Lista de alumnos:");
-        for (Alumno alumno : mapaPersonal.values()) {
-            System.out.println("Nombre: " + alumno.getNombre());
-            System.out.println("RUT: " + alumno.getRut());
-            System.out.println("Créditos: " + alumno.getCreditos());
-        }
-        System.out.println("-----------------------------");
+
+    public Collection<Alumno> getAlumnos() {
+        return mapaPersonal.values();
     }
     
     private Boolean parseRuta(String ruta) //TODO
