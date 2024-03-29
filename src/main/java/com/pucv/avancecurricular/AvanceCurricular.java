@@ -93,7 +93,12 @@ public class AvanceCurricular {
                 verAvanceAlumno(datos, rut);
                 break;
             case 4:
-                datos.calcularAvance(rut);
+                Alumno alumno = datos.getAlumno(rut);
+
+                int creditosCursados = alumno.calcularCreditosCursados();
+                int creditosMalla = alumno.calcularCreditosMalla();
+                System.out.println("El alumno " + alumno.getNombre() + " ha cursado " + creditosCursados + " creditos de " + creditosMalla + " creditos en su malla.");
+                
                 break;
             }
     
