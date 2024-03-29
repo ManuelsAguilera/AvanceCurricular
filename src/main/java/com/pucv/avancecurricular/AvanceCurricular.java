@@ -36,12 +36,19 @@ public class AvanceCurricular {
                     administrarMallas(scan,datos);
                     break;
                 case 2:
-                    anadirAlumno(scan,datos);
+                    if(anadirAlumno(scan,datos)){
+                        System.out.println("añadido con exito");  
+                    }else{
+                        System.out.println("para añadir un alumno primero debe crearse una malla");
+                    }
                     break;
                 case 3:
                     break;
                 case 4:
                     datos.mostrarAlumnos();
+                    break;
+                case 5:
+                    
                     break;
                 default:
                     System.out.println("ingrese una opcion correcta");
@@ -112,7 +119,8 @@ public class AvanceCurricular {
         String rut=scan.next();
         System.out.println("ingrese el nombre o identificador de la malla");
         String mallaId = scan.next();
-        return datos.addAlumno(nombre, rut, SALIDA, mallaId);
+        int creditos=0;
+        return datos.addAlumno(nombre, rut,creditos, mallaId);
         
         
     }
