@@ -18,16 +18,7 @@ import java.util.TreeMap;
  * En un futuro podria ser implementado informacion sobre los profesores, o 
  * informacion de los alumnos desde las mallas o carreras.
  * 
- * Posibles respuestas de error:
- *  0: Nada malo ha pasado
- *  1: No se puede añadir el objeto por x razon
- *  2: El objeto no se puede añadir porque no hay informacion
- * 
- * 
- * 
- * 
- * @parseRuta:
- * Nos avisa si fue ingresado correctamente la ruta de archivo
+
  * 
  * 
  */
@@ -45,10 +36,12 @@ public class DatosPersonal {
         
     }
     
+    
+    //Añade un alumno al HashMap, solo si es que se le puede asociar una malla a este.
     public boolean addAlumno(String nombre,String rut,int creditos, String mallaId)
     {
         if (mallasDisp.isEmpty())
-            return false; //El usuario no sabra porque pero bueno.
+            return false; 
         
         
         Alumno newAlumno= new Alumno(nombre, rut, creditos,mallasDisp.get(mallaId));
@@ -56,6 +49,8 @@ public class DatosPersonal {
         return true;
     }
     
+    
+    //remueve un valor alumno del hashmap, luego lo guarda como null, en caso de querer sobreescribir.
     public boolean removeAlumno(String rut)
     {
         if (mapaPersonal.containsKey(rut))
@@ -63,12 +58,16 @@ public class DatosPersonal {
         return true;
     }
     
+    
+    //Añade una instancia malla, a nuestro mapa de mallas asociandolo a un nombre
+    //ej : "Ingenieria civil informatica 2020"::new Malla()
     public boolean addMalla(String mallaId)
     {
         mallasDisp.put(mallaId,new Malla(mallaId));
         return true;
     }
     
+    //quita la malla del mapa, eliminando clave y valor.
     public boolean removeMalla(String mallaId)
     {
         if (!mallasDisp.containsKey(mallaId))
@@ -80,11 +79,13 @@ public class DatosPersonal {
         
     }
     
+    //Devuelve un set de strings, con el nombre de las mallas
     public Set getMallas()
     {
         return mallasDisp.keySet();
     }
     
+    //añade una asignatura a una de las mallas de plantilla
     public boolean addAsignatura(String mallaId,String ramo, String profesor, int creditos)
     {
         if (!mallasDisp.containsKey(mallaId))
@@ -96,15 +97,10 @@ public class DatosPersonal {
         
     }
     
-    public void mostrarAlumnos() {
-        System.out.println("Lista de alumnos:");
-        for (Alumno alumno : mapaPersonal.values()) {
-            System.out.println("Nombre: " + alumno.getNombre());
-            System.out.println("RUT: " + alumno.getRut());
-            System.out.println("Créditos: " + alumno.getCreditos());
-        }
-        System.out.println("-----------------------------");
-    }
+    
+    
+    
+    //marca una asignatura de un alumno como aprobado
     public void marcarAprobado(String rut,String nombreAsignatura){
         if(mapaPersonal.containsKey(rut)){
             Alumno alumno = mapaPersonal.get(rut);
@@ -119,7 +115,8 @@ public class DatosPersonal {
         
     }
     
-    public void marcarReprobado(String rut , String nombreAsignatura){
+    //marca una asignatura de un alumno como reprobado
+    public void marcarNoAprobado(String rut , String nombreAsignatura){
         if(mapaPersonal.containsKey(rut)){
             Alumno alumno = mapaPersonal.get(rut);
             Malla malla = alumno.getMalla();
@@ -131,6 +128,19 @@ public class DatosPersonal {
             }
         }    
     }
+    
+    //Devuelve una set o arraylist con informacion de todos los alumnos.
+    /*****************************************IMPORTANTE HAY QUE CAMBIARLO A QUE SEA UN GET EN VEZ DE TERMINAL*/
+    public void mostrarAlumnos() {
+        System.out.println("Lista de alumnos:");
+        for (Alumno alumno : mapaPersonal.values()) {
+            System.out.println("Nombre: " + alumno.getNombre());
+            System.out.println("RUT: " + alumno.getRut());
+            System.out.println("Créditos: " + alumno.getCreditos());
+        }
+        System.out.println("-----------------------------");
+    }
+    
     public void calcularAvance(String rut){
         if (mapaPersonal.containsKey(rut)) {
             Alumno alumno = mapaPersonal.get(rut);

@@ -20,6 +20,7 @@ public class AvanceCurricular {
         
         Scanner scan=new Scanner(System.in);
         do{
+            
             System.out.println("*******************************");
             System.out.println("*           menu              *");
             System.out.println("*******************************");
@@ -73,7 +74,7 @@ public class AvanceCurricular {
             System.out.println("*           administrar avance          *");
             System.out.println("*****************************************");
             System.out.println("* 1.-marcar asignatura como aprobada    *");
-            System.out.println("* 2.-marcar asignatura como reprobada   *");
+            System.out.println("* 2.-marcar asignatura como no aprobada *");
             System.out.println("* 3.-ver asignaturas y su estado        *");
             System.out.println("* 4.-ver avance alumno                  *");
             System.out.println("* 0.-salida                             *");
@@ -89,7 +90,7 @@ public class AvanceCurricular {
                 case 2:
                     System.out.println("ingrese nombre asignatura");
                     inputString = scan.next();;
-                    datos.marcarReprobado(rut, inputString);
+                    datos.marcarNoAprobado(rut, inputString);
                     break;
                 case 3:
                     // falta ver asignaturas y su estado
@@ -186,4 +187,6 @@ public class AvanceCurricular {
     {
         System.out.println(datos.getMallas()); //Nose si se pondra complicado
     }
+    
+    
 }
