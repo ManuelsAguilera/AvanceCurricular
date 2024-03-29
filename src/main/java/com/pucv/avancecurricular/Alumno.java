@@ -14,6 +14,12 @@ public class Alumno {
     private int creditos;
     private Malla malla;
     
+    public Alumno() {
+        this.nombre = "";
+        this.rut = "";
+        this.creditos = 0;
+        this.malla=null;
+    }
     public Alumno(String nombre, String rut, int creditos,Malla malla) {
         this.nombre = nombre;
         this.rut = rut;

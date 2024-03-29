@@ -14,11 +14,18 @@ public class Asignatura {
     private int creditos;
     private Boolean estado;
 
-    public Asignatura(String ramo, String profesor, int creditos, Boolean estado) {
+    public Asignatura(String ramo, String profesor, int creditos,boolean estado) {
         this.ramo = ramo;
         this.profesor = profesor;
         this.creditos = creditos;
         this.estado = estado;
+    }
+    
+    public Asignatura(String ramo, String profesor, int creditos) {
+        this.ramo = ramo;
+        this.profesor = profesor;
+        this.creditos = creditos;
+        this.estado = false;
     }
 
     public String getRamo() {

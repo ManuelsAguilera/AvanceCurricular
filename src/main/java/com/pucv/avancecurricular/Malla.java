@@ -11,12 +11,27 @@ import java.util.ArrayList;
  * @author alfar
  */
 public class Malla {
+    private String mallaId;
     private ArrayList<Asignatura> listaAsignaturas;
     
-    public Malla(ArrayList<Asignatura> listaAsignaturas) {
+    public Malla(String id,ArrayList<Asignatura> listaAsignaturas) {
         this.listaAsignaturas = listaAsignaturas;
+        this.mallaId = id;
+    }
+    public Malla(String id)
+    {
+        this.mallaId=id;
+        this.listaAsignaturas = new ArrayList<Asignatura>();
     }
 
+    public boolean isEmpty()
+    {
+        return listaAsignaturas.isEmpty();
+    }
+    
+    
+    
+    
     public ArrayList<Asignatura> getListaAsignaturas() {
         return listaAsignaturas;
     }
@@ -26,9 +41,6 @@ public class Malla {
     }
 
     public void agregarAsignatura(Asignatura asignatura) {
-        if (listaAsignaturas == null) {
-            listaAsignaturas = new ArrayList<>();
-        }
         listaAsignaturas.add(asignatura);
     }
     
