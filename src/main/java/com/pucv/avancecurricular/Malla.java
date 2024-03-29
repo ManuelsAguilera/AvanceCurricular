@@ -28,6 +28,10 @@ public class Malla {
     {
         return listaAsignaturas.isEmpty();
     }
+
+    public String getMallaId() {
+        return mallaId;
+    }
     
     
     

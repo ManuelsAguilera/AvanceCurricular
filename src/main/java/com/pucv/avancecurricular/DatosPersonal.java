@@ -95,8 +95,20 @@ public class DatosPersonal {
         
     }
     
-    
-    
+    public void mostrarAlumnos() {
+        System.out.println("Lista de alumnos:");
+        for (Alumno alumno : mapaPersonal.values()) {
+            System.out.println("Nombre: " + alumno.getNombre());
+            System.out.println("RUT: " + alumno.getRut());
+            System.out.println("Créditos: " + alumno.getCreditos());
+            System.out.println("Malla: " + alumno.getMalla().getMallaId());
+            System.out.println("Asignaturas cursadas:");
+            //for (Asignatura asignatura : alumno.getMalla().getListaAsignaturas) {
+            //    System.out.println("- " + asignatura.getNombre() + ", Profesor: " + asignatura.getProfesor());
+            //}
+            //System.out.println("-----------------------");
+        }
+    }
     
     
     
