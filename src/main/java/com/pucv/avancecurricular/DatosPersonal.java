@@ -34,6 +34,17 @@ public class DatosPersonal {
         return true;
     }
     
+    public boolean addAlumno(Alumno alumno) {
+        
+        if (mallasDisp.isEmpty())
+            return false; 
+        
+        
+        mapaPersonal.putIfAbsent(alumno.getRut(), alumno);
+        
+        return true;
+    }
+    
     public Alumno getAlumno(String rut){
         
         if (!mapaPersonal.containsKey(rut))
@@ -52,6 +63,11 @@ public class DatosPersonal {
     
     //Añade una instancia malla, a nuestro mapa de mallas asociandolo a un nombre
     //ej : "Ingenieria civil informatica 2020"::new Malla()
+    public boolean addMalla(Malla malla) {
+        mallasDisp.put(malla.getMallaId(),malla);
+        
+        return true;
+    }
     public boolean addMalla(String mallaId) {
         mallasDisp.put(mallaId, new Malla(mallaId));
         

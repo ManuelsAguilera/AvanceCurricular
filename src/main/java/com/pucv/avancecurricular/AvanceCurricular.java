@@ -25,6 +25,7 @@ public class AvanceCurricular {
             System.out.println("* 3.- Eliminar alumno           *");
             System.out.println("* 4.- Ver alumnos               *");
             System.out.println("* 5.- Administrar avance alumno.*");
+            System.out.println("* 6.- Cargar datos hardcoded    *");
             System.out.println("* 0.- Salir                     *");
             System.out.println("*********************************");
             
@@ -52,12 +53,37 @@ public class AvanceCurricular {
                 String rut = scan.next();
                 administrarAvance(scan,datos,rut);    
                 break;
-                
+            case 6:
+                System.out.println("Datos Cargados");
+                cargarDatos(datos);
             default:
                 System.out.println("ingrese una opcion correcta");
             }
             
         }while(opcion!=SALIDA);   
+    }
+    
+    private static void cargarDatos(DatosPersonal datos)
+    {
+        Malla mallaIng = new Malla("Ingenieria");
+        mallaIng.agregarAsignatura("Mate1","Andrea",4,true);
+        mallaIng.agregarAsignatura("Etica Cristiana","martina",2,true);
+        mallaIng.agregarAsignatura("Intro Ing","Guillermo",5,true);
+        mallaIng.agregarAsignatura("Progra avanz","Cubillos",4,false);
+        datos.addMalla(mallaIng);
+        Malla mallaDerecho = new Malla("Derecho");
+        mallaIng.agregarAsignatura("Derecho romano","Felipe",5,false);
+        mallaIng.agregarAsignatura("Historia","Javiera",2,false);
+        mallaIng.agregarAsignatura("AntiMatematica","Paul",5,true);
+        mallaIng.agregarAsignatura("Economia","Camilo",4,false);
+        datos.addMalla(mallaDerecho);
+        
+        datos.addAlumno(new Alumno("Miguel","21556",0,mallaIng));
+        datos.addAlumno(new Alumno("Martin","21600",0,mallaIng));
+        datos.addAlumno(new Alumno("Alexandra","22444",0,mallaDerecho));
+        datos.addAlumno(new Alumno("Andres","20777",0,mallaDerecho));
+        datos.addAlumno(new Alumno("Juan","23441",0,mallaDerecho));
+        datos.addAlumno(new Alumno("Juana","22556",0,mallaDerecho));
     }
     
     private static void administrarAvance(Scanner scan, DatosPersonal datos, String rut){

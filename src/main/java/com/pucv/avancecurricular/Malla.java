@@ -40,4 +40,9 @@ public class Malla {
     public void agregarAsignatura(Asignatura asignatura) {
         listaAsignaturas.add(asignatura);
     }
+    
+    public void agregarAsignatura(String ramo, String profesor, int creditos,boolean estado) {
+        
+        listaAsignaturas.add(new Asignatura(ramo,profesor,creditos,estado));
+    }
 }
