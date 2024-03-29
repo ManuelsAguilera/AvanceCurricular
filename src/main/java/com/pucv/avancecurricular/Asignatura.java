@@ -31,6 +31,14 @@ public class Asignatura {
     public String getRamo() {
         return ramo;
     }
+    
+    public void marcarAprobada() {
+        this.estado = true;
+    }
+    
+    public void marcarReprobado(){
+        this.estado=false;
+    }
 
     public void setRamo(String ramo) {
         this.ramo = ramo;

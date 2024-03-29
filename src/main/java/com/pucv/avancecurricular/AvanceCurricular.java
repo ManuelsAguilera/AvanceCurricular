@@ -20,16 +20,16 @@ public class AvanceCurricular {
         
         Scanner scan=new Scanner(System.in);
         do{
-            System.out.println("*****************************");
-            System.out.println("*           menu            *");
-            System.out.println("*****************************");
-            System.out.println("* 1.-administrar mallas      *");
-            System.out.println("* 2.-agregar alumno         *");
-            System.out.println("* 3.-eliminar alumno        *");
-            System.out.println("* 4.-ver alumnos            *");
-            System.out.println("* 5.- ver progreso de alumno*");
-            System.out.println("*0.-salir                   *");
-            System.out.println("*****************************");
+            System.out.println("*******************************");
+            System.out.println("*           menu              *");
+            System.out.println("*******************************");
+            System.out.println("* 1.-administrar mallas       *");
+            System.out.println("* 2.-agregar alumno           *");
+            System.out.println("* 3.-eliminar alumno          *");
+            System.out.println("* 4.-ver alumnos              *");
+            System.out.println("* 5.-administrar avance alumno*");
+            System.out.println("*0.-salir                     *");
+            System.out.println("*******************************");
             opcion=scan.nextInt();
             switch(opcion){
                 case 1:
@@ -39,15 +39,20 @@ public class AvanceCurricular {
                     if(anadirAlumno(scan,datos)){
                         System.out.println("añadido con exito");  
                     }else{
-                        System.out.println("para añadir un alumno primero debe crearse una malla");
+                        System.out.println("para agregar un alumno primero debe crearse una malla");
                     }
                     break;
                 case 3:
+                    System.out.println("ingrese rut sin puntos y sin digito verificador del alumno");
                     break;
                 case 4:
                     datos.mostrarAlumnos();
                     break;
                 case 5:
+                    System.out.println("ingrese rut del alumno ");
+                    String rut = scan.next();
+                    administrarAvance(scan,datos,rut);
+                    
                     
                     break;
                 default:
@@ -60,7 +65,45 @@ public class AvanceCurricular {
         
     }
     
+    private static void administrarAvance(Scanner scan,DatosPersonal datos,String rut){
+        int opcion;
+        
+        do{
+            System.out.println("*****************************************");
+            System.out.println("*           administrar avance          *");
+            System.out.println("*****************************************");
+            System.out.println("* 1.-marcar asignatura como aprobada    *");
+            System.out.println("* 2.-marcar asignatura como reprobada   *");
+            System.out.println("* 3.-ver asignaturas y su estado        *");
+            System.out.println("* 4.-ver avance alumno                  *");
+            System.out.println("* 0.-salida                             *");
+            System.out.println("*****************************************");
+            opcion=scan.nextInt();
+            String inputString="";
+            switch(opcion){
+                case 1:
+                    System.out.println("ingrese nombre asignatura");
+                    inputString = scan.next();;
+                    datos.marcarAprobado(rut,inputString);
+                    break;
+                case 2:
+                    System.out.println("ingrese nombre asignatura");
+                    inputString = scan.next();;
+                    datos.marcarReprobado(rut, inputString);
+                    break;
+                case 3:
+                    
+                    break;
+                case 4:
+                    datos.calcularAvance(rut);
+                    
+                    break;
+                    
+            }
     
+        }while (opcion!=SALIDA);
+    }    
+   
     
     private static void administrarMallas(Scanner scan,DatosPersonal datos)
     {
@@ -124,6 +167,7 @@ public class AvanceCurricular {
         
         
     }
+    
     private static boolean anadirAsignatura(Scanner scan,DatosPersonal datos)
     {
         System.out.println("Ingrese nombre de malla a seleccionar");

@@ -84,6 +84,7 @@ public class DatosPersonal {
     {
         return mallasDisp.keySet();
     }
+    
     public boolean addAsignatura(String mallaId,String ramo, String profesor, int creditos)
     {
         if (!mallasDisp.containsKey(mallaId))
@@ -104,9 +105,42 @@ public class DatosPersonal {
         }
         System.out.println("-----------------------------");
     }
+    public void marcarAprobado(String rut,String nombreAsignatura){
+        if(mapaPersonal.containsKey(rut)){
+            Alumno alumno = mapaPersonal.get(rut);
+            Malla malla = alumno.getMalla();
+            for (Asignatura asignatura : malla.getListaAsignaturas()) {
+                if (asignatura.getRamo().equals(nombreAsignatura)) {
+                    asignatura.marcarAprobada();
+                    return;
+                }
+            }
+        }
+        
+    }
     
+    public void marcarReprobado(String rut , String nombreAsignatura){
+        if(mapaPersonal.containsKey(rut)){
+            Alumno alumno = mapaPersonal.get(rut);
+            Malla malla = alumno.getMalla();
+            for (Asignatura asignatura : malla.getListaAsignaturas()) {
+                if (asignatura.getRamo().equals(nombreAsignatura)) {
+                    asignatura.marcarAprobada();
+                    return;
+                }
+            }
+        }    
+    }
+    public void calcularAvance(String rut){
+        if (mapaPersonal.containsKey(rut)) {
+            Alumno alumno = mapaPersonal.get(rut);
+            int creditosCursados = alumno.calcularCreditosCursados();
+            int creditosMalla = alumno.calcularCreditosMalla();
+            System.out.println("El alumno " + alumno.getNombre() + " ha cursado " + creditosCursados + " créditos de " + creditosMalla + " créditos en su malla.");
+        }
+    }
     
-    
+
     private Boolean parseRuta(String ruta) //TODO
     {
         return false;
