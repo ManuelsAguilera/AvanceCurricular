@@ -259,26 +259,26 @@ public class AvanceCurricular {
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
 
             while ((line = br.readLine()) != null) {
-                // use comma as separator
+                
                 String[] data = line.split(cvsSplitBy);
 
-                // Check if the line is a Malla name
+               
                 if (data.length == 1 && !data[0].isEmpty()) {
                     currentMalla = new Malla(data[0]);
                     datos.addMalla(currentMalla);
                 } 
-                // Else, the line is an Asignatura
+                
                 else if (currentMalla != null && data.length == 3) {
                     Asignatura asignatura = new Asignatura(data[0], data[1], Integer.parseInt(data[2]));
                     currentMalla.agregarAsignatura(asignatura);
                 }
-                // Else, the line is an Alumno
+               
                 else if (data.length > 3) {
                     Malla malla = datos.getMalla(data[2]);
                     Alumno alumno = new Alumno(data[1], data[0], malla);
                     datos.addAlumno(alumno);
                     
-                    // Mark Asignaturas as approved or not based on the rest of the data
+                
                     ArrayList<Asignatura> asignaturas = malla.getListaAsignaturas();
                     for (int i = 3; i < data.length; i++) {
                         if (data[i].equals("1")) {
