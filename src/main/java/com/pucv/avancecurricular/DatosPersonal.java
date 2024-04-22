@@ -89,6 +89,9 @@ public class DatosPersonal {
         return mallasDisp.keySet();
     }
     
+    public Malla getMalla(String mallaId) {
+        return mallasDisp.get(mallaId);
+    }
     //añade una asignatura a una de las mallas de plantilla
     public boolean addAsignatura(String mallaId, String ramo, String profesor, int creditos) {
         
