@@ -1,6 +1,11 @@
 package com.pucv.avancecurricular;
-import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.io.PrintWriter;
+
 
 /*
  * @author magui
@@ -16,6 +21,7 @@ public class AvanceCurricular {
         DatosPersonal datos = new DatosPersonal();
         Scanner scan=new Scanner(System.in);
         
+        
         do{
             System.out.println("*********************************");
             System.out.println("*           Menu                *");
@@ -25,6 +31,8 @@ public class AvanceCurricular {
             System.out.println("* 3.- Ver alumnos               *");
             System.out.println("* 4.- Administrar avance alumno.*");
             System.out.println("* 5.- Cargar datos hardcoded    *");
+            System.out.println("* 6.- cargar csv                *");
+            System.out.println("* 7.- exportar csv              *");
             System.out.println("* 0.- Salir                     *");
             System.out.println("*********************************");
             
@@ -57,6 +65,13 @@ public class AvanceCurricular {
             case 5:
                 System.out.println("Datos Cargados");
                 cargarDatos(datos);
+                break;
+            case 6:
+                leerDatosDesdeCSV(datos, "C:\\Users\\alfar\\Desktop\\proyecto avanzada\\leerMalla.csv");
+                break;
+            case 7:
+                exportarCsv(datos);
+                break;
             
             default:
                 System.out.println("ingrese una opcion correcta");
@@ -241,6 +256,92 @@ public class AvanceCurricular {
         System.out.println("Nombre: " + alumno.getNombre());
         System.out.println("RUT: " + alumno.getRut());
         System.out.println("Créditos: " + alumno.calcularCreditosCursados());
+    }
+    
+    private static void leerDatosDesdeCSV(DatosPersonal datos, String csvFile) {
+        String line = "";
+        String cvsSplitBy = ",";
+        Malla currentMalla = null;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+
+            while ((line = br.readLine()) != null) {
+                
+                String[] data = line.split(cvsSplitBy);
+                if(line.contains("alumnos")){
+                    continue;
+                }
+                
+                if(line.contains("Mallas")){
+                    continue;
+                }
+               
+                if (data.length == 1 && !data[0].isEmpty()) {
+                    currentMalla = new Malla(data[0]);
+                    datos.addMalla(currentMalla);
+                } 
+                
+                else if (currentMalla != null && data.length == 3) {
+                    Asignatura asignatura = new Asignatura(data[0], data[1], Integer.parseInt(data[2]));
+                    currentMalla.agregarAsignatura(asignatura);
+                }
+               
+                else if (data.length > 3) {
+                    Malla malla = datos.getMalla(data[2]);
+                    Alumno alumno = new Alumno(data[1], data[0], malla);
+                    datos.addAlumno(alumno);
+                    
+                
+                    ArrayList<Asignatura> asignaturas = malla.getListaAsignaturas();
+                    for (int i = 3; i < data.length; i++) {
+                        if (data[i].equals("1")) {
+                            asignaturas.get(i-3).marcarAprobada();
+                        } else {
+                            asignaturas.get(i-3).marcarReprobado();
+                        }
+                    }
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private static void exportarCsv(DatosPersonal datos){
+        PrintWriter writer = null;
+        try{
+            String ruta = System.getProperty("user.home") + "/Desktop/";
+            writer = new PrintWriter(ruta+"alumnos.csv", "UTF-8");
+            writer.println("Mallas");
+            writer.println(" ");
+            for(Malla act:datos.getMalla2()){
+                writer.println(act.getMallaId());
+                for(Asignatura a:act.getListaAsignaturas()){
+                    writer.println(a.getRamo()+","+a.getProfesor()+","+a.getCreditos());
+                    
+                }
+                writer.println(" ");
+            }
+            writer.println("alumnos");
+            writer.println(" ");
+            for(Alumno actA:datos.getAlumnos()){
+                writer.print(actA.getRut()+","+actA.getNombre()+","+actA.getMalla().getMallaId());
+                for(Asignatura asignaturas:actA.getMalla().getListaAsignaturas()){
+                     writer.print(","+(asignaturas.isAprobada() ? "1" : "0"));
+                    
+                }
+                writer.println(" ");
+            }
+            
+        }catch(IOException e){
+            
+  
+            System.out.println("Ocurrió un error al escribir el archivo CSV: " + e.getMessage());
+        } finally {
+            if(writer != null){
+                writer.close();
+            }      
+        }
     }
 }
 
