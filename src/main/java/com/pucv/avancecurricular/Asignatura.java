@@ -28,7 +28,9 @@ public class Asignatura {
     public String getRamo() {
         return ramo;
     }
-    
+    public boolean isAprobada(){
+        return this.estado;
+    }
     public void marcarAprobada() {
         this.estado = true;
     }

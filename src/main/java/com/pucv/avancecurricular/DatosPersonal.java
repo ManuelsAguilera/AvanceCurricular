@@ -142,6 +142,10 @@ public class DatosPersonal {
         return mapaPersonal.values();
     }
     
+    public Collection<Malla> getMalla2(){
+        return mallasDisp.values();
+    }
+    
     private Boolean parseRuta(String ruta) //TODO
     {
         return false;

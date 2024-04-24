@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.io.PrintWriter;
+
+
 /*
  * @author magui
  */
@@ -29,6 +32,7 @@ public class AvanceCurricular {
             System.out.println("* 4.- Administrar avance alumno.*");
             System.out.println("* 5.- Cargar datos hardcoded    *");
             System.out.println("* 6.- cargar csv                *");
+            System.out.println("* 7.- exportar csv              *");
             System.out.println("* 0.- Salir                     *");
             System.out.println("*********************************");
             
@@ -64,6 +68,9 @@ public class AvanceCurricular {
                 break;
             case 6:
                 leerDatosDesdeCSV(datos, "C:\\Users\\alfar\\Desktop\\proyecto avanzada\\leerMalla.csv");
+                break;
+            case 7:
+                exportarCsv(datos);
                 break;
             
             default:
@@ -261,7 +268,13 @@ public class AvanceCurricular {
             while ((line = br.readLine()) != null) {
                 
                 String[] data = line.split(cvsSplitBy);
-
+                if(line.contains("alumnos")){
+                    continue;
+                }
+                
+                if(line.contains("Mallas")){
+                    continue;
+                }
                
                 if (data.length == 1 && !data[0].isEmpty()) {
                     currentMalla = new Malla(data[0]);
@@ -292,6 +305,42 @@ public class AvanceCurricular {
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+    private static void exportarCsv(DatosPersonal datos){
+        PrintWriter writer = null;
+        try{
+            String ruta = System.getProperty("user.home") + "/Desktop/";
+            writer = new PrintWriter(ruta+"alumnos.csv", "UTF-8");
+            writer.println("Mallas");
+            writer.println(" ");
+            for(Malla act:datos.getMalla2()){
+                writer.println(act.getMallaId());
+                for(Asignatura a:act.getListaAsignaturas()){
+                    writer.println(a.getRamo()+","+a.getProfesor()+","+a.getCreditos());
+                    
+                }
+                writer.println(" ");
+            }
+            writer.println("alumnos");
+            writer.println(" ");
+            for(Alumno actA:datos.getAlumnos()){
+                writer.print(actA.getRut()+","+actA.getNombre()+","+actA.getMalla().getMallaId());
+                for(Asignatura asignaturas:actA.getMalla().getListaAsignaturas()){
+                     writer.print(","+(asignaturas.isAprobada() ? "1" : "0"));
+                    
+                }
+                writer.println(" ");
+            }
+            
+        }catch(IOException e){
+            
+  
+            System.out.println("Ocurrió un error al escribir el archivo CSV: " + e.getMessage());
+        } finally {
+            if(writer != null){
+                writer.close();
+            }      
         }
     }
 }
