@@ -9,6 +9,9 @@ import java.io.PrintWriter;
 
 /*
  * @author magui
+    Puede que este main, quede desactualizado
+    por la implementacion de excepciones, ya que este menu
+    depende del return boolean de ciertas funciones.
  */
 
 public class AvanceCurricular {
@@ -37,7 +40,7 @@ public class AvanceCurricular {
             System.out.println("*********************************");
             
             opcion=scan.nextInt();
-            
+            try {
             switch(opcion){
                 
             case 1:
@@ -76,6 +79,24 @@ public class AvanceCurricular {
             default:
                 System.out.println("ingrese una opcion correcta");
             }
+            }
+            catch(EmptyCollectionException e)
+            {
+                System.out.println("Se intento acceder, o modificar datos inexistentes, intente de nuevo");
+                continue;
+            }
+            catch(EmptyTemplateException e)
+            {
+                System.out.println("Se intento añadir una malla, sin haber hecho una plantilla");
+                System.out.println("Intente agregandola en el menu de mallas");
+                continue;
+            }
+            catch(Exception e)
+            {
+                System.out.println("Error desconocido saliendo del programa");
+                e.printStackTrace();
+                opcion=SALIDA;
+            }
             
         }while(opcion!=SALIDA);   
     }
@@ -94,13 +115,19 @@ public class AvanceCurricular {
         mallaIng.agregarAsignatura("AntiMatematica","Paul",5,true);
         mallaIng.agregarAsignatura("Economia","Camilo",4,false);
         datos.addMalla(mallaDerecho);
-        
+        try{
         datos.addAlumno(new Alumno("Miguel","21556",mallaIng));
         datos.addAlumno(new Alumno("Martin","21600",mallaIng));
         datos.addAlumno(new Alumno("Alexandra","22444",mallaDerecho));
         datos.addAlumno(new Alumno("Andres","20777",mallaDerecho));
         datos.addAlumno(new Alumno("Juan","23441",mallaDerecho));
         datos.addAlumno(new Alumno("Juana","22556",mallaDerecho));
+        }
+        catch(EmptyTemplateException e)
+        {
+            System.out.println("No se pudieron generar mallas");
+            
+        }
     }
     
     private static void administrarAvance(Scanner scan, DatosPersonal datos, String rut){
@@ -121,6 +148,7 @@ public class AvanceCurricular {
             opcion = scan.nextInt();
             String inputString = "";
             
+            try {
             switch(opcion){
             
             case 1:
@@ -153,11 +181,24 @@ public class AvanceCurricular {
                 else
                     System.out.println("No existe el alumno, o hubo un error en el ingreso");
             }
+            }
+            catch(EmptyCollectionException e)
+            {
+                System.out.println("No se encuentra la informacion pedida");
+                continue;
+            }
+            catch(Exception e)
+            {
+                System.out.println("Encontrado un error desconocido\nCerrando Programa");
+                e.printStackTrace();
+                opcion=SALIDA;
+            }
     
         }while (opcion!=SALIDA);
+        
     }    
    
-    private static void administrarMallas(Scanner scan, DatosPersonal datos)
+    private static void administrarMallas(Scanner scan, DatosPersonal datos) throws EmptyCollectionException
     {
         int opcion;
         do{
@@ -205,7 +246,8 @@ public class AvanceCurricular {
         }while(opcion!=SALIDA);
     }
     
-    private static boolean anadirAlumno(Scanner scan, DatosPersonal datos){
+    private static boolean anadirAlumno(Scanner scan, DatosPersonal datos) throws EmptyCollectionException{
+        
         System.out.println("ingrese nombre del alumno");
         String nombre=scan.next();
         System.out.println("ingrese rut sin puntos y sin digito verificador del alumno");
@@ -215,9 +257,12 @@ public class AvanceCurricular {
         
         
         return datos.addAlumno(nombre, rut, mallaId);
+        
+        
+        
     }
     
-    private static boolean anadirAsignatura(Scanner scan,DatosPersonal datos){
+    private static boolean anadirAsignatura(Scanner scan,DatosPersonal datos) throws EmptyCollectionException{
         System.out.println("Ingrese nombre de malla a seleccionar");
         String mallaId = scan.next();
         System.out.println("Ingrese nombre del ramo a agregar");
@@ -235,7 +280,7 @@ public class AvanceCurricular {
         System.out.println(datos.getMallas());
     }
     
-    private static void verAvanceAlumno(DatosPersonal datos, String rut) {
+    private static void verAvanceAlumno(DatosPersonal datos, String rut) throws EmptyCollectionException {
         
         Malla malla = datos.getAlumno(rut).getMalla();
         
@@ -258,7 +303,7 @@ public class AvanceCurricular {
         System.out.println("Créditos: " + alumno.calcularCreditosCursados());
     }
     
-    private static void leerDatosDesdeCSV(DatosPersonal datos, String csvFile) {
+    private static void leerDatosDesdeCSV(DatosPersonal datos, String csvFile) throws EmptyTemplateException {
         String line = "";
         String cvsSplitBy = ",";
         Malla currentMalla = null;
