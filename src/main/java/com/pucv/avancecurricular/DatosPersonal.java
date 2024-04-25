@@ -24,10 +24,10 @@ public class DatosPersonal {
     }
     
     //Añade un alumno al HashMap, solo si es que se le puede asociar una malla a este.
-    public boolean addAlumno(String nombre, String rut, String mallaId) {
+    public boolean addAlumno(String nombre, String rut, String mallaId) throws EmptyTemplateException{
         
         if (mallasDisp.isEmpty())
-            return false; 
+            throw new EmptyTemplateException();
         
         Alumno newAlumno= new Alumno(nombre, rut, mallasDisp.get(mallaId));
         mapaPersonal.putIfAbsent(rut, newAlumno);
@@ -35,10 +35,10 @@ public class DatosPersonal {
         return true;
     }
     
-    public boolean addAlumno(Alumno alumno) {
+    public boolean addAlumno(Alumno alumno) throws EmptyTemplateException {
         
         if (mallasDisp.isEmpty())
-            return false; 
+            throw new EmptyTemplateException();
         
         
         mapaPersonal.putIfAbsent(alumno.getRut(), alumno);
@@ -46,10 +46,10 @@ public class DatosPersonal {
         return true;
     }
     
-    public Alumno getAlumno(String rut){
+    public Alumno getAlumno(String rut) throws EmptyCollectionException{
         
         if (!mapaPersonal.containsKey(rut))
-                return null;
+                throw new EmptyCollectionException();
         
         return mapaPersonal.get(rut);
     }
@@ -76,9 +76,9 @@ public class DatosPersonal {
     }
     
     //quita la malla del mapa, eliminando clave y valor.
-    public boolean removeMalla(String mallaId) {
+    public boolean removeMalla(String mallaId) throws EmptyTemplateException {
         if (!mallasDisp.containsKey(mallaId))
-            return false;
+            throw new EmptyTemplateException();
         
         mallasDisp.remove(mallaId);
         return true;
@@ -93,10 +93,10 @@ public class DatosPersonal {
         return mallasDisp.get(mallaId);
     }
     //añade una asignatura a una de las mallas de plantilla
-    public boolean addAsignatura(String mallaId, String ramo, String profesor, int creditos) {
+    public boolean addAsignatura(String mallaId, String ramo, String profesor, int creditos) throws EmptyCollectionException {
         
         if (!mallasDisp.containsKey(mallaId))
-            return false;
+            throw new EmptyCollectionException();
         
         Malla malla = mallasDisp.get(mallaId);
         malla.agregarAsignatura(new Asignatura(ramo, profesor, creditos));
@@ -105,10 +105,10 @@ public class DatosPersonal {
     }
     
     //marca una asignatura de un alumno como aprobado
-    public void marcarAprobado(String rut, String nombreAsignatura){
+    public void marcarAprobado(String rut, String nombreAsignatura) throws EmptyCollectionException{
         
         if(!mapaPersonal.containsKey(rut))
-            return;
+            throw new EmptyCollectionException();
         
         Alumno alumno = mapaPersonal.get(rut);
         Malla malla = alumno.getMalla();
@@ -123,10 +123,10 @@ public class DatosPersonal {
     }
     
     //marca una asignatura de un alumno como reprobado
-    public void marcarNoAprobado(String rut , String nombreAsignatura){
+    public void marcarNoAprobado(String rut , String nombreAsignatura) throws EmptyCollectionException{
         
         if(!mapaPersonal.containsKey(rut))
-            return;
+            throw new EmptyCollectionException();
 
         Alumno alumno = mapaPersonal.get(rut);
         Malla malla = alumno.getMalla();

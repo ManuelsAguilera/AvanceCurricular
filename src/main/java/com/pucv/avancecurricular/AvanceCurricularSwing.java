@@ -17,16 +17,16 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
     DatosPersonal datos = new DatosPersonal();
     public AvanceCurricularSwing() {
         initComponents();
-        //initComponentss();
+        initComponentss();
     }
    
     //poner imagen en el panel
-    /*private void initComponentss() {
-        JLabel labelConImagen = new JLabel(new ImageIcon("C:\\Users\\alfar\\Desktop\\proyecto avanzada\\AvanceCurricular\\images\\HD-wallpaper-windows-xp-day-microsoft-8k.jpg"));
+    private void initComponentss() {
+        JLabel labelConImagen = new JLabel(new ImageIcon("C:\\Users\\alfar\\Desktop\\proyecto avanzada\\FGintKnXEAERKKN.jpg"));
         labelConImagen.setBounds(0, 0, jDesktopPane1.getWidth(), jDesktopPane1.getHeight());
         jDesktopPane1.add(labelConImagen);
 
-    }*/
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,7 +61,7 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGap(0, 677, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Mallas");
@@ -133,7 +133,7 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 721, Short.MAX_VALUE))
+                .addGap(0, 590, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jDesktopPane1))
@@ -152,6 +152,7 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed

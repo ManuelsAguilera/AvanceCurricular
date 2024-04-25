@@ -123,7 +123,7 @@ public class AvanceCurricular {
         datos.addAlumno(new Alumno("Juan","23441",mallaDerecho));
         datos.addAlumno(new Alumno("Juana","22556",mallaDerecho));
         }
-        catch(EmptyTemplateException e)
+        catch (EmptyTemplateException e)
         {
             System.out.println("No se pudieron generar mallas");
             
@@ -198,7 +198,7 @@ public class AvanceCurricular {
         
     }    
    
-    private static void administrarMallas(Scanner scan, DatosPersonal datos) throws EmptyCollectionException
+    private static void administrarMallas(Scanner scan, DatosPersonal datos) throws EmptyTemplateException,EmptyCollectionException
     {
         int opcion;
         do{
@@ -246,7 +246,7 @@ public class AvanceCurricular {
         }while(opcion!=SALIDA);
     }
     
-    private static boolean anadirAlumno(Scanner scan, DatosPersonal datos) throws EmptyCollectionException{
+    private static boolean anadirAlumno(Scanner scan, DatosPersonal datos) throws EmptyTemplateException{
         
         System.out.println("ingrese nombre del alumno");
         String nombre=scan.next();
