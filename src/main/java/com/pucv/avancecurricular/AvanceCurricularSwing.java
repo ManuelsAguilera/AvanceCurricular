@@ -3,7 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.pucv.avancecurricular;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 //import java.awt.*;
 /**
  *
@@ -113,6 +118,11 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
         jMenu3.setText("csv");
 
         jMenuItem7.setText("cargar csv");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem7);
 
         jMenuItem8.setText("exportar csv");
@@ -166,10 +176,95 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem6ActionPerformed
-
+    
+    
+    private void exportarArchivo(String filePath) throws FileNotFoundException
+    {
+        try {
+        System.out.println(filePath);
+        FileDatosPersonal.exportarDatosPersonal(datos,filePath);
+        
+        }
+        catch (UnsupportedEncodingException e)
+        {
+            JOptionPane.showMessageDialog(this,"Error no se pudo hacer correctamente el encoding");
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Error al cargar archivo");
+        }
+    }
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        // TODO add your handling code here:
+        
+        JFileChooser fileChooser = new JFileChooser();
+        FileFilter filter = new FileNameExtensionFilter("Carpeta Salida y nombre (*.csv)","csv");
+        fileChooser.setFileFilter(filter);
+        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        fileChooser.setDialogTitle("Select Folder");
+        
+
+
+        int returnValue = fileChooser.showSaveDialog(null);
+        
+        String filePath = "";
+        
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            filePath = selectedFile.getAbsolutePath();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this,"Error con ruta de archivo");
+            return;
+        }
+       
+        try {
+            exportarArchivo(filePath);
+        }
+        catch(FileNotFoundException e) //Revisar si es que no se esṕecifico archivo
+        {
+            try { exportarArchivo(filePath+"/alumnos.csv"); }
+            //Si despues de agregar una ruta de archivo, sigue habiendo excepcion
+            //retornar
+            catch(FileNotFoundException _e)
+            {
+                JOptionPane.showMessageDialog(this,"Error ruta del archivo");
+            }
+        }
+        
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        //Importar archivo
+        
+        JFileChooser fileChooser = new JFileChooser();
+        FileFilter filter = new FileNameExtensionFilter("Archivos de texto (*.csv)", "csv");
+        fileChooser.setFileFilter(filter);
+        
+        
+        
+        int returnValue = fileChooser.showSaveDialog(null);
+        
+        String filePath = "";
+        try {
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            filePath = selectedFile.getAbsolutePath();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this,"Error al cargar el archivo");
+            return;
+        }
+        
+        FileDatosPersonal.importarDatosPersonal(datos,filePath);
+        }
+        
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Error al cargar archivo");
+        }
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
      * @param args the command line arguments
