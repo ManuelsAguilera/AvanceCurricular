@@ -25,7 +25,7 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
         initComponentss();
     }
    
-    //poner imagen en el panel
+    
     private void initComponentss() {
         JLabel labelConImagen = new JLabel(new ImageIcon("C:\\Users\\alfar\\Desktop\\proyecto avanzada\\FGintKnXEAERKKN.jpg"));
         labelConImagen.setBounds(0, 0, jDesktopPane1.getWidth(), jDesktopPane1.getHeight());
