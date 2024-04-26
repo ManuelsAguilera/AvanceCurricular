@@ -41,99 +41,151 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         label = new javax.swing.JLabel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
+        csvVisor = new javax.swing.JPanel();
+        PanelButtons = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
+        mallaMenuButton = new javax.swing.JMenu();
+        mallaMenuItemAgregarMalla = new javax.swing.JMenuItem();
+        mallaMenuItemAgragarAsig = new javax.swing.JMenuItem();
+        mallaMenuItemQuitarMalla = new javax.swing.JMenuItem();
+        mallaMenuItemVerMalla = new javax.swing.JMenuItem();
+        alumnosMenuButton = new javax.swing.JMenu();
+        alumnoMenuItemAgregarAlumno = new javax.swing.JMenuItem();
+        alumnoMenuItemAvance = new javax.swing.JMenuItem();
+        csvMenuButton = new javax.swing.JMenu();
+        csvMenuItemExportar = new javax.swing.JMenuItem();
+        csvMenuItemCargar = new javax.swing.JMenuItem();
+
+        jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Avance Curricular (GUI)");
+        setResizable(false);
+        setSize(new java.awt.Dimension(800, 600));
+
+        csvVisor.setBackground(new java.awt.Color(255, 0, 0));
+
+        javax.swing.GroupLayout csvVisorLayout = new javax.swing.GroupLayout(csvVisor);
+        csvVisor.setLayout(csvVisorLayout);
+        csvVisorLayout.setHorizontalGroup(
+            csvVisorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
+        );
+        csvVisorLayout.setVerticalGroup(
+            csvVisorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
+        );
+
+        PanelButtons.setBackground(new java.awt.Color(0, 255, 0));
+        PanelButtons.setForeground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout PanelButtonsLayout = new javax.swing.GroupLayout(PanelButtons);
+        PanelButtons.setLayout(PanelButtonsLayout);
+        PanelButtonsLayout.setHorizontalGroup(
+            PanelButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 188, Short.MAX_VALUE)
+        );
+        PanelButtonsLayout.setVerticalGroup(
+            PanelButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jDesktopPane1.setLayer(csvVisor, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(PanelButtons, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addComponent(csvVisor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PanelButtons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 677, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(csvVisor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelButtons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(42, 42, 42))
         );
 
-        jMenu1.setText("Mallas");
+        mallaMenuButton.setText("Mallas");
 
-        jMenuItem1.setText("agregar malla");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        mallaMenuItemAgregarMalla.setText("Agregar malla");
+        mallaMenuItemAgregarMalla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mallaMenuItemAgregarMallaActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        mallaMenuButton.add(mallaMenuItemAgregarMalla);
 
-        jMenuItem2.setText("agregar Asignaturas a malla");
-        jMenu1.add(jMenuItem2);
-
-        jMenuItem3.setText("quitar malla");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        mallaMenuItemAgragarAsig.setText("Agregar Asignaturas a malla");
+        mallaMenuItemAgragarAsig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                mallaMenuItemAgragarAsigActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        mallaMenuButton.add(mallaMenuItemAgragarAsig);
 
-        jMenuItem4.setText("ver mallas");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        mallaMenuItemQuitarMalla.setText("Quitar malla");
+        mallaMenuItemQuitarMalla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                mallaMenuItemQuitarMallaActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem4);
+        mallaMenuButton.add(mallaMenuItemQuitarMalla);
 
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Alumnos");
-
-        jMenuItem5.setText("agregar Alumno");
-        jMenu2.add(jMenuItem5);
-
-        jMenuItem6.setText("administrar avanze ");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        mallaMenuItemVerMalla.setText("Ver mallas");
+        mallaMenuItemVerMalla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                mallaMenuItemVerMallaActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem6);
+        mallaMenuButton.add(mallaMenuItemVerMalla);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(mallaMenuButton);
 
-        jMenu3.setText("csv");
+        alumnosMenuButton.setText("Alumnos");
 
-        jMenuItem7.setText("cargar csv");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+        alumnoMenuItemAgregarAlumno.setText("Agregar alumno");
+        alumnosMenuButton.add(alumnoMenuItemAgregarAlumno);
+
+        alumnoMenuItemAvance.setText("Administrar avance ");
+        alumnoMenuItemAvance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
+                alumnoMenuItemAvanceActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem7);
+        alumnosMenuButton.add(alumnoMenuItemAvance);
 
-        jMenuItem8.setText("exportar csv");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+        jMenuBar1.add(alumnosMenuButton);
+
+        csvMenuButton.setText("csv");
+
+        csvMenuItemExportar.setText("Exportar csv");
+        csvMenuItemExportar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
+                csvMenuItemExportarActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem8);
+        csvMenuButton.add(csvMenuItemExportar);
 
-        jMenuBar1.add(jMenu3);
+        csvMenuItemCargar.setText("Cargar csv");
+        csvMenuItemCargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                csvMenuItemCargarActionPerformed(evt);
+            }
+        });
+        csvMenuButton.add(csvMenuItemCargar);
+
+        jMenuBar1.add(csvMenuButton);
 
         setJMenuBar(jMenuBar1);
 
@@ -143,10 +195,11 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 590, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jDesktopPane1))
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,22 +213,22 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void mallaMenuItemAgregarMallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mallaMenuItemAgregarMallaActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_mallaMenuItemAgregarMallaActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void mallaMenuItemQuitarMallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mallaMenuItemQuitarMallaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_mallaMenuItemQuitarMallaActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void mallaMenuItemVerMallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mallaMenuItemVerMallaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_mallaMenuItemVerMallaActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+    private void alumnoMenuItemAvanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alumnoMenuItemAvanceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    }//GEN-LAST:event_alumnoMenuItemAvanceActionPerformed
     
     
     private void exportarArchivo(String filePath) throws FileNotFoundException
@@ -194,7 +247,7 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error al cargar archivo");
         }
     }
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+    private void csvMenuItemExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_csvMenuItemExportarActionPerformed
         
         JFileChooser fileChooser = new JFileChooser();
         FileFilter filter = new FileNameExtensionFilter("Carpeta Salida y nombre (*.csv)","csv");
@@ -232,9 +285,9 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
             }
         }
         
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
+    }//GEN-LAST:event_csvMenuItemExportarActionPerformed
 
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+    private void csvMenuItemCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_csvMenuItemCargarActionPerformed
         //Importar archivo
         
         JFileChooser fileChooser = new JFileChooser();
@@ -264,7 +317,11 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(this, "Error al cargar archivo");
         }
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
+    }//GEN-LAST:event_csvMenuItemCargarActionPerformed
+
+    private void mallaMenuItemAgragarAsigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mallaMenuItemAgragarAsigActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mallaMenuItemAgragarAsigActionPerformed
 
     /**
      * @param args the command line arguments
@@ -302,19 +359,22 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanelButtons;
+    private javax.swing.JMenuItem alumnoMenuItemAgregarAlumno;
+    private javax.swing.JMenuItem alumnoMenuItemAvance;
+    private javax.swing.JMenu alumnosMenuButton;
+    private javax.swing.JMenu csvMenuButton;
+    private javax.swing.JMenuItem csvMenuItemCargar;
+    private javax.swing.JMenuItem csvMenuItemExportar;
+    private javax.swing.JPanel csvVisor;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JLabel label;
+    private javax.swing.JMenu mallaMenuButton;
+    private javax.swing.JMenuItem mallaMenuItemAgragarAsig;
+    private javax.swing.JMenuItem mallaMenuItemAgregarMalla;
+    private javax.swing.JMenuItem mallaMenuItemQuitarMalla;
+    private javax.swing.JMenuItem mallaMenuItemVerMalla;
     // End of variables declaration//GEN-END:variables
 }
