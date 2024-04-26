@@ -57,6 +57,8 @@ public class FileDatosPersonal {
             }
             writer.println(" ");
         }
+        writer.close();
+        //a
 
 
     }
