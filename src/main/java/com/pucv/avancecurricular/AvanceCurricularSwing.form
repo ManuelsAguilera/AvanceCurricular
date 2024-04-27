@@ -9,11 +9,42 @@
     </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
+        <Menu class="javax.swing.JMenu" name="archivoMenuButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Archivo"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="csvMenuItemExportar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Exportar csv"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="csvMenuItemExportarActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="csvMenuItemCargar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cargar csv"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="csvMenuItemCargarActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
         <Menu class="javax.swing.JMenu" name="mallaMenuButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Mallas"/>
           </Properties>
           <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="mallaMenuItemVerMalla">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ver mallas"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mallaMenuItemVerMallaActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mallaMenuItemAgregarMalla">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Agregar malla"/>
@@ -38,14 +69,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mallaMenuItemQuitarMallaActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="mallaMenuItemVerMalla">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Ver mallas"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mallaMenuItemVerMallaActionPerformed"/>
-              </Events>
-            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="alumnosMenuButton">
@@ -64,29 +87,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alumnoMenuItemAvanceActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="csvMenuButton">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="csv"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="csvMenuItemExportar">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Exportar csv"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="csvMenuItemExportarActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="csvMenuItemCargar">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cargar csv"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="csvMenuItemCargarActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

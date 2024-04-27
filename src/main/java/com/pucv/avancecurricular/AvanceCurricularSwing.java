@@ -53,17 +53,17 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
+        archivoMenuButton = new javax.swing.JMenu();
+        csvMenuItemExportar = new javax.swing.JMenuItem();
+        csvMenuItemCargar = new javax.swing.JMenuItem();
         mallaMenuButton = new javax.swing.JMenu();
+        mallaMenuItemVerMalla = new javax.swing.JMenuItem();
         mallaMenuItemAgregarMalla = new javax.swing.JMenuItem();
         mallaMenuItemAgragarAsig = new javax.swing.JMenuItem();
         mallaMenuItemQuitarMalla = new javax.swing.JMenuItem();
-        mallaMenuItemVerMalla = new javax.swing.JMenuItem();
         alumnosMenuButton = new javax.swing.JMenu();
         alumnoMenuItemAgregarAlumno = new javax.swing.JMenuItem();
         alumnoMenuItemAvance = new javax.swing.JMenuItem();
-        csvMenuButton = new javax.swing.JMenu();
-        csvMenuItemExportar = new javax.swing.JMenuItem();
-        csvMenuItemCargar = new javax.swing.JMenuItem();
 
         jLabel1.setText("jLabel1");
 
@@ -162,7 +162,35 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
                 .addGap(42, 42, 42))
         );
 
+        archivoMenuButton.setText("Archivo");
+
+        csvMenuItemExportar.setText("Exportar csv");
+        csvMenuItemExportar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                csvMenuItemExportarActionPerformed(evt);
+            }
+        });
+        archivoMenuButton.add(csvMenuItemExportar);
+
+        csvMenuItemCargar.setText("Cargar csv");
+        csvMenuItemCargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                csvMenuItemCargarActionPerformed(evt);
+            }
+        });
+        archivoMenuButton.add(csvMenuItemCargar);
+
+        jMenuBar1.add(archivoMenuButton);
+
         mallaMenuButton.setText("Mallas");
+
+        mallaMenuItemVerMalla.setText("Ver mallas");
+        mallaMenuItemVerMalla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mallaMenuItemVerMallaActionPerformed(evt);
+            }
+        });
+        mallaMenuButton.add(mallaMenuItemVerMalla);
 
         mallaMenuItemAgregarMalla.setText("Agregar malla");
         mallaMenuItemAgregarMalla.addActionListener(new java.awt.event.ActionListener() {
@@ -188,14 +216,6 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
         });
         mallaMenuButton.add(mallaMenuItemQuitarMalla);
 
-        mallaMenuItemVerMalla.setText("Ver mallas");
-        mallaMenuItemVerMalla.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mallaMenuItemVerMallaActionPerformed(evt);
-            }
-        });
-        mallaMenuButton.add(mallaMenuItemVerMalla);
-
         jMenuBar1.add(mallaMenuButton);
 
         alumnosMenuButton.setText("Alumnos");
@@ -212,26 +232,6 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
         alumnosMenuButton.add(alumnoMenuItemAvance);
 
         jMenuBar1.add(alumnosMenuButton);
-
-        csvMenuButton.setText("csv");
-
-        csvMenuItemExportar.setText("Exportar csv");
-        csvMenuItemExportar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                csvMenuItemExportarActionPerformed(evt);
-            }
-        });
-        csvMenuButton.add(csvMenuItemExportar);
-
-        csvMenuItemCargar.setText("Cargar csv");
-        csvMenuItemCargar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                csvMenuItemCargarActionPerformed(evt);
-            }
-        });
-        csvMenuButton.add(csvMenuItemCargar);
-
-        jMenuBar1.add(csvMenuButton);
 
         setJMenuBar(jMenuBar1);
 
@@ -276,93 +276,13 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_alumnoMenuItemAvanceActionPerformed
     
-    
-    private void exportarArchivo(String filePath) throws FileNotFoundException
-    {
-        try {
-        System.out.println(filePath);
-        FileDatosPersonal.exportarDatosPersonal(datos,filePath);
-        
-        }
-        catch (UnsupportedEncodingException e)
-        {
-            JOptionPane.showMessageDialog(this,"Error no se pudo hacer correctamente el encoding");
-        }
-        catch(Exception e)
-        {
-            JOptionPane.showMessageDialog(this, "Error al cargar archivo");
-        }
-    }
     private void csvMenuItemExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_csvMenuItemExportarActionPerformed
-        
-        JFileChooser fileChooser = new JFileChooser();
-        FileFilter filter = new FileNameExtensionFilter("Carpeta Salida y nombre (*.csv)","csv");
-        fileChooser.setFileFilter(filter);
-        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        fileChooser.setDialogTitle("Select Folder");
-        
 
-
-        int returnValue = fileChooser.showSaveDialog(null);
-        
-        String filePath = "";
-        
-        if (returnValue == JFileChooser.APPROVE_OPTION) {
-            File selectedFile = fileChooser.getSelectedFile();
-            filePath = selectedFile.getAbsolutePath();
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(this,"Error con ruta de archivo");
-            return;
-        }
-       
-        try {
-            exportarArchivo(filePath);
-        }
-        catch(FileNotFoundException e) //Revisar si es que no se esṕecifico archivo
-        {
-            try { exportarArchivo(filePath+"/alumnos.csv"); }
-            //Si despues de agregar una ruta de archivo, sigue habiendo excepcion
-            //retornar
-            catch(FileNotFoundException _e)
-            {
-                JOptionPane.showMessageDialog(this,"Error ruta del archivo");
-            }
-        }
         
     }//GEN-LAST:event_csvMenuItemExportarActionPerformed
 
     private void csvMenuItemCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_csvMenuItemCargarActionPerformed
-        //Importar archivo
-        
-        JFileChooser fileChooser = new JFileChooser();
-        FileFilter filter = new FileNameExtensionFilter("Archivos de texto (*.csv)", "csv");
-        fileChooser.setFileFilter(filter);
-        
-        
-        
-        int returnValue = fileChooser.showSaveDialog(null);
-        
-        String filePath = "";
-        try {
-        if (returnValue == JFileChooser.APPROVE_OPTION) {
-            File selectedFile = fileChooser.getSelectedFile();
-            filePath = selectedFile.getAbsolutePath();
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(this,"Error al cargar el archivo");
-            return;
-        }
-        
-        FileDatosPersonal.importarDatosPersonal(datos,filePath);
-        }
-        
-        catch(Exception e)
-        {
-            JOptionPane.showMessageDialog(this, "Error al cargar archivo");
-        }
+      
     }//GEN-LAST:event_csvMenuItemCargarActionPerformed
 
     private void mallaMenuItemAgragarAsigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mallaMenuItemAgragarAsigActionPerformed
@@ -407,13 +327,21 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
             }
         });
     }
+    
+    public JMenuItem GetCsvCargarButton() {
+        return csvMenuItemCargar;
+    }
+    
+    public JMenuItem GetCsvExpotarButton() {
+        return csvMenuItemExportar;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelButtons;
     private javax.swing.JMenuItem alumnoMenuItemAgregarAlumno;
     private javax.swing.JMenuItem alumnoMenuItemAvance;
     private javax.swing.JMenu alumnosMenuButton;
-    private javax.swing.JMenu csvMenuButton;
+    private javax.swing.JMenu archivoMenuButton;
     private javax.swing.JMenuItem csvMenuItemCargar;
     private javax.swing.JMenuItem csvMenuItemExportar;
     private javax.swing.JPanel csvVisor;
