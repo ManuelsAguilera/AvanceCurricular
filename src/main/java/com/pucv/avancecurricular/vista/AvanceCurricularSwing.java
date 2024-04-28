@@ -92,14 +92,39 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
         });
 
         AgregarAlumnos.setText("Agregar alumnos");
+        AgregarAlumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarAlumnosActionPerformed(evt);
+            }
+        });
 
         administrarAvanceAlumno.setText("Administrar avance alumno");
+        administrarAvanceAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                administrarAvanceAlumnoActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Agregar Malla");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Editar malla");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Vista general de mallas");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelButtonsLayout = new javax.swing.GroupLayout(PanelButtons);
         PanelButtons.setLayout(PanelButtonsLayout);
@@ -250,10 +275,19 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
                 .addGap(0, 0, 0))
         );
 
+        optionsPane.addTab("",(JPanel) new VistaAlumnosP());
         optionsPane.addTab("", (JPanel) new AgregarAlumnoP());
+        optionsPane.addTab("", (JPanel) new AdministrarAvanceP());
         optionsPane.addTab("",(JPanel) new AgregarMallaP());
+        optionsPane.addTab("",(JPanel) new EditarMallasP());
+        optionsPane.addTab("", (JPanel) new VistaMallasP());
+
         optionsPane.setEnabledAt(0,false);
         optionsPane.setEnabledAt(1,false);
+        optionsPane.setEnabledAt(2,false);
+        optionsPane.setEnabledAt(3,false);
+        optionsPane.setEnabledAt(4,false);
+        optionsPane.setEnabledAt(5,false);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -289,8 +323,32 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
     }//GEN-LAST:event_mallaMenuItemAgragarAsigActionPerformed
 
     private void vistaGeneralAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vistaGeneralAlumnosActionPerformed
-        
+        optionsPane.setSelectedIndex(0);
     }//GEN-LAST:event_vistaGeneralAlumnosActionPerformed
+
+    private void AgregarAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarAlumnosActionPerformed
+        optionsPane.setSelectedIndex(1);
+
+    }//GEN-LAST:event_AgregarAlumnosActionPerformed
+
+    private void administrarAvanceAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_administrarAvanceAlumnoActionPerformed
+        optionsPane.setSelectedIndex(2);
+    }//GEN-LAST:event_administrarAvanceAlumnoActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        optionsPane.setSelectedIndex(3);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        optionsPane.setSelectedIndex(4);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        optionsPane.setSelectedIndex(5);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

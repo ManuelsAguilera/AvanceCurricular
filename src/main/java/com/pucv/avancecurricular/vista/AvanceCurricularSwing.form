@@ -253,26 +253,41 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Agregar alumnos"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgregarAlumnosActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="administrarAvanceAlumno">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Administrar avance alumno"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="administrarAvanceAlumnoActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton4">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Agregar Malla"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton5">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Editar malla"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton6">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Vista general de mallas"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -280,7 +295,7 @@
     </Container>
     <Container class="javax.swing.JTabbedPane" name="optionsPane">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="optionsPane.addTab(&quot;&quot;, (JPanel) new AgregarAlumnoP());&#xa;optionsPane.addTab(&quot;&quot;,(JPanel) new AgregarMallaP());&#xa;optionsPane.setEnabledAt(0,false);&#xa;optionsPane.setEnabledAt(1,false);"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="optionsPane.addTab(&quot;&quot;,(JPanel) new VistaAlumnosP());&#xa;optionsPane.addTab(&quot;&quot;, (JPanel) new AgregarAlumnoP());&#xa;optionsPane.addTab(&quot;&quot;, (JPanel) new AdministrarAvanceP());&#xa;optionsPane.addTab(&quot;&quot;,(JPanel) new AgregarMallaP());&#xa;optionsPane.addTab(&quot;&quot;,(JPanel) new EditarMallasP());&#xa;optionsPane.addTab(&quot;&quot;, (JPanel) new VistaMallasP());&#xa;&#xa;optionsPane.setEnabledAt(0,false);&#xa;optionsPane.setEnabledAt(1,false);&#xa;optionsPane.setEnabledAt(2,false);&#xa;optionsPane.setEnabledAt(3,false);&#xa;optionsPane.setEnabledAt(4,false);&#xa;optionsPane.setEnabledAt(5,false);"/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
