@@ -28,23 +28,24 @@ public class Controlador implements MouseListener {
         
         this.vista = vista;
         this.vista.GetCsvCargarButton().addMouseListener(this);
-        
+        this.vista.GetCsvExpotarButton().addMouseListener(this);
         
         this.vista.setVisible(true);
     }
     
     public void mouseClicked(MouseEvent event){
-        if (event.getSource() == vista.GetCsvCargarButton()) {
-            System.out.println("1");
-        } else if (event.getSource() == vista.GetCsvExpotarButton()){
-            System.out.println("2");
-        }
         
         System.out.println("Click");
     }
     
     public void mousePressed(MouseEvent event){
         System.out.println("Press");
+        
+        if (event.getSource() == vista.GetCsvCargarButton()) {
+            OnCargarCsv();
+        } else if (event.getSource() == vista.GetCsvExpotarButton()){
+            OnExportarCsv();
+        }
     }
     
     public void mouseReleased(MouseEvent event){
