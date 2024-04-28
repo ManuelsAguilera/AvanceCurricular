@@ -1,4 +1,10 @@
 package com.pucv.avancecurricular;
+import com.pucv.avancecurricular.Logica.EmptyTemplateException;
+import com.pucv.avancecurricular.Logica.Malla;
+import com.pucv.avancecurricular.Logica.EmptyCollectionException;
+import com.pucv.avancecurricular.Logica.Alumno;
+import com.pucv.avancecurricular.Logica.Asignatura;
+import com.pucv.avancecurricular.Logica.DatosPersonal;
 import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;

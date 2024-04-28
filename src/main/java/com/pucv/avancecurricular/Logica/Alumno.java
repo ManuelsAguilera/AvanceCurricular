@@ -1,4 +1,4 @@
-package com.pucv.avancecurricular;
+package com.pucv.avancecurricular.Logica;
 
 /*
  * @author alfar

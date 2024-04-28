@@ -1,4 +1,4 @@
-package com.pucv.avancecurricular;
+package com.pucv.avancecurricular.Logica;
 
 import java.util.Collection;
 import java.util.HashMap;
