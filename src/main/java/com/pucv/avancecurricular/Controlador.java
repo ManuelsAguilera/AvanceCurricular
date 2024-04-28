@@ -4,6 +4,7 @@ package com.pucv.avancecurricular;
  * @author matias
  */
 
+import com.pucv.avancecurricular.vista.AvanceCurricularSwing;
 import com.pucv.avancecurricular.Logica.FileDatosPersonal;
 import com.pucv.avancecurricular.Logica.DatosPersonal;
 import java.awt.event.MouseEvent;

@@ -4,6 +4,8 @@
  */
 package com.pucv.avancecurricular;
 
+import com.pucv.avancecurricular.vista.AvanceCurricularSwing;
+
 /**
  *
  * @author matias
