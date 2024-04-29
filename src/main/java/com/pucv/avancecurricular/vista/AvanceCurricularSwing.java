@@ -326,6 +326,11 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
         return(AgregarAlumnoP) this.optionsPane.getComponent(1);
     }
     
+    public AgregarMallaP getAgregarMallaP()
+    {
+        return (AgregarMallaP) this.optionsPane.getComponent(3);
+    }
+    
     public VistaMallasP getVistaMallasP()
     {
         return (VistaMallasP) this.optionsPane.getComponent(5);

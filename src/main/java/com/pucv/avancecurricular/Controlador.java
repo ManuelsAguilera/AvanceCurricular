@@ -38,6 +38,8 @@ public class Controlador implements MouseListener {
         //Leer actualizador de vista general alumnos
         this.vista.getVistaAlumnoBtn().addMouseListener(this);
         this.vista.getAgregarAlumnoP().getAcceptButton().addMouseListener(this);
+        this.vista.getAgregarMallaP().getAgregarBtn().addMouseListener(this);
+        this.vista.getAgregarMallaP().getQuitarBtn().addMouseListener(this);
         this.vista.getVistaMallasP().getAcceptButton().addMouseListener(this);
         this.vista.setVisible(true);
     }
@@ -70,7 +72,32 @@ public class Controlador implements MouseListener {
            //boton de agregar un alumno
            
            agregarAlumnosEvent();
-       }
+       } else 
+           if (event.getSource() == this.vista.getAgregarMallaP().getAgregarBtn()){
+               //Los siguientes 2 if son acerca de agregar quitar mallas
+               String mallaId = this.vista.getAgregarMallaP().getField();
+               
+               datos.addMalla(mallaId);
+               JOptionPane.showMessageDialog(vista, "Añadido correctamente la malla "+mallaId, "Confirmacion", JOptionPane.PLAIN_MESSAGE);
+           } else if (event.getSource() == this.vista.getAgregarMallaP().getQuitarBtn())
+           {
+               
+               String mallaId = this.vista.getAgregarMallaP().getField();
+               //Para quitar una plantilla
+               String warningMsg = "¿Estas seguro?\nPerderas los datos de la malla ";
+               warningMsg += "Pero los alumnos no perderan su malla asignada actualmente";
+               int confirmation = JOptionPane.showConfirmDialog(this.vista,warningMsg);
+               if (confirmation!=JOptionPane.YES_OPTION) //Si usuario no confirma
+                   return;
+               //sino
+               try{
+               datos.removeMalla(mallaId);
+               }
+               catch(EmptyTemplateException e)
+               {
+                   JOptionPane.showMessageDialog(this.vista,"Al parecer no existe la malla que deseas eliminar");
+               }
+           }
        
        if (event.getSource() == vista.getVistaMallasP().getAcceptButton())
        {
@@ -158,6 +185,7 @@ public class Controlador implements MouseListener {
 
         try{
         datos.addAlumno((String) datosAlumno[0],(String) datosAlumno[1],(String) datosAlumno[2]);
+        JOptionPane.showMessageDialog(vista, "Añadido correctamente al alumno "+(String)datosAlumno[0], "Confirmacion", JOptionPane.PLAIN_MESSAGE);
         }
         catch(EmptyTemplateException e)
         {

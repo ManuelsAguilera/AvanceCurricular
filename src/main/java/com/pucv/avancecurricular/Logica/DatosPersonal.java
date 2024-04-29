@@ -81,6 +81,7 @@ public class DatosPersonal {
             throw new EmptyTemplateException();
         
         mallasDisp.remove(mallaId);
+        
         return true;
     }
     
