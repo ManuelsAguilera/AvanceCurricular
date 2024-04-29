@@ -157,7 +157,7 @@ public class DatosPersonal {
         rowsAlumnos[index][0] = alumno.getNombre();
         rowsAlumnos[index][1] = alumno.getRut();
         rowsAlumnos[index][2] = alumno.getMalla().getMallaId();
-        rowsAlumnos[index][3] = alumno.calcularCreditosMalla();
+        rowsAlumnos[index][3] = alumno.calcularCreditosCursados();
         index++;
     }
     
