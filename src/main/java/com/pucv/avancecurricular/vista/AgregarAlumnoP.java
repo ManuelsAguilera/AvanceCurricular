@@ -4,6 +4,8 @@
  */
 package com.pucv.avancecurricular.vista;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author manu
@@ -27,35 +29,44 @@ public class AgregarAlumnoP extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        nombreAlumn = new javax.swing.JTextField();
-        rutAlumn = new javax.swing.JTextField();
-        Mallaid = new javax.swing.JTextField();
+        nombreField = new javax.swing.JTextField();
+        rutField = new javax.swing.JTextField();
+        mallaField = new javax.swing.JTextField();
         acceptButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         jLabel1.setText("agregar Alumno");
 
-        nombreAlumn.setText("nombre Alumno");
-        nombreAlumn.addActionListener(new java.awt.event.ActionListener() {
+        nombreField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombreAlumnActionPerformed(evt);
+                nombreFieldActionPerformed(evt);
             }
         });
 
-        rutAlumn.setText("Rut Alumno");
-        rutAlumn.addActionListener(new java.awt.event.ActionListener() {
+        rutField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rutAlumnActionPerformed(evt);
+                rutFieldActionPerformed(evt);
             }
         });
 
-        Mallaid.setText("Malla id");
-        Mallaid.addActionListener(new java.awt.event.ActionListener() {
+        mallaField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MallaidActionPerformed(evt);
+                mallaFieldActionPerformed(evt);
             }
         });
 
         acceptButton.setText("aceptar");
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Rut Alumno");
+
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Nombre Alumno:");
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Malla Alumno:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -67,12 +78,18 @@ public class AgregarAlumnoP extends javax.swing.JPanel {
                 .addContainerGap(152, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(nombreAlumn, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                        .addComponent(rutAlumn)
-                        .addComponent(Mallaid))
-                    .addComponent(acceptButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(acceptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(nombreField, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                            .addComponent(rutField)
+                            .addComponent(mallaField))))
                 .addGap(44, 44, 44))
         );
         layout.setVerticalGroup(
@@ -81,35 +98,57 @@ public class AgregarAlumnoP extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(48, 48, 48)
-                .addComponent(nombreAlumn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nombreField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(rutAlumn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rutField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Mallaid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mallaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(acceptButton)
                 .addGap(40, 40, 40))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void nombreAlumnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreAlumnActionPerformed
+    
+    
+    private void nombreFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nombreAlumnActionPerformed
+    }//GEN-LAST:event_nombreFieldActionPerformed
 
-    private void rutAlumnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rutAlumnActionPerformed
+    private void rutFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rutFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rutAlumnActionPerformed
+    }//GEN-LAST:event_rutFieldActionPerformed
 
-    private void MallaidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MallaidActionPerformed
+    private void mallaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mallaFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MallaidActionPerformed
+    }//GEN-LAST:event_mallaFieldActionPerformed
 
-
+    public Object[] getFields()
+    {
+        Object[] data = new Object[3];
+        data[0] = nombreField.getText();
+        data[1] = rutField.getText();
+        data[2] = mallaField.getText();
+        return data;
+    }
+    
+    public JButton getAcceptButton()
+    {
+        return acceptButton;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Mallaid;
     private javax.swing.JButton acceptButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField nombreAlumn;
-    private javax.swing.JTextField rutAlumn;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JTextField mallaField;
+    private javax.swing.JTextField nombreField;
+    private javax.swing.JTextField rutField;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,8 +5,8 @@ package com.pucv.avancecurricular;
  */
 
 import com.pucv.avancecurricular.vista.AvanceCurricularSwing;
-import com.pucv.avancecurricular.Logica.FileDatosPersonal;
-import com.pucv.avancecurricular.Logica.DatosPersonal;
+import com.pucv.avancecurricular.Logica.*;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
@@ -31,9 +31,9 @@ public class Controlador implements MouseListener {
         this.vista.GetCsvCargarButton().addMouseListener(this);
         this.vista.GetCsvExpotarButton().addMouseListener(this);
         
-        //Leer panel de botones
-        for (JButton btn : this.vista.getPanelButtons())
-            btn.addMouseListener(this);
+        //Leer actualizador de vista general alumnos
+        this.vista.getVistaAlumnoBtn().addMouseListener(this);
+        this.vista.getAgregarAlumnoP().getAcceptButton().addMouseListener(this);
         
         this.vista.setVisible(true);
     }
@@ -51,15 +51,22 @@ public class Controlador implements MouseListener {
         } else if (event.getSource() == vista.GetCsvExpotarButton()){
             OnExportarCsv();
         }
-        else if (event.getSource() == vista.getVistaAlumno()) 
+        
+        //Eventos de cada panel
+       if (event.getSource() == vista.getVistaAlumnoBtn()) 
         {
             //Actualizar modelo de alumnos
             Object[][] content = datos.getRowsAlumnos();
             
             this.vista.updateModel(content);
-            
         }
+       else if (event.getSource() == vista.getAgregarAlumnoP().getAcceptButton()){
+           //boton de agregar un alumno
+           
+           agregarAlumnosEvent();
+       }
     }
+    
     
     public void mouseReleased(MouseEvent event){
         System.out.println("Realease");
@@ -107,6 +114,20 @@ public class Controlador implements MouseListener {
                JOptionPane.showMessageDialog(this.vista,"Error ruta del archivo");
             }
         }
+    }
+    
+    
+    private void agregarAlumnosEvent()
+    {
+        Object[] datosAlumno = vista.getAgregarAlumnoP().getFields();
+
+        try{
+        datos.addAlumno((String) datosAlumno[0],(String) datosAlumno[1],(String) datosAlumno[2]);
+        }
+        catch(EmptyTemplateException e)
+        {
+            JOptionPane.showMessageDialog(this.vista,"Intenta de nuevo, registrando una plantilla de malla");
+        }   
     }
     
     private void exportarArchivo(String filePath) throws FileNotFoundException

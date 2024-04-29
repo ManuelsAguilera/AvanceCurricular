@@ -313,33 +313,17 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
         return csvMenuItemExportar;
     }
 
-    public JButton[] getPanelButtons()
-    {
-        JButton[] list = {this.agregarAlumnos,this.administrarAvanceAlumno,this.vistaGeneralAlumnos,
-                        this.agregarMalla};
-        
-        return list;
-        
-    }
     
-    public JButton getVistaAlumno()
+    
+    
+    public JButton getVistaAlumnoBtn()
     {
         return vistaGeneralAlumnos;
     }
-    public JButton getAdministrarAvanceAlumno() {
-        return administrarAvanceAlumno;
-    }
-
-    public JButton getAgregarAlumnos() {
-        return agregarAlumnos;
-    }
-
-    public JButton getAgregarMalla() {
-        return agregarMalla;
-    }
-
-    public JButton getEditarMalla() {
-        return editarMalla;
+    
+    public AgregarAlumnoP getAgregarAlumnoP()
+    {
+        return(AgregarAlumnoP) this.optionsPane.getComponent(1);
     }
     
     public void updateModel(Object[][] content)
@@ -351,6 +335,8 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
             tableFrame.addRow(row);
         }
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelButtons;
