@@ -36,7 +36,7 @@ public class FileDatosPersonal {
    public static void exportarDatosPersonal(DatosPersonal datos,String ruta) throws UnsupportedEncodingException,FileNotFoundException{
         PrintWriter writer = null;
 
-        writer = new PrintWriter(ruta+"alumnos.csv", "UTF-8");
+        writer = new PrintWriter(new File(ruta+"alumnos.csv"), "UTF-8");
         writer.println("Mallas");
         writer.println(" ");
         for(Malla act:datos.getMalla2()){

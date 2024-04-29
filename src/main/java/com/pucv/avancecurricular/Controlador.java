@@ -29,7 +29,7 @@ public class Controlador implements MouseListener {
         this.vista = vista;
         
         
-        FileDatosPersonal.importarDatosPersonal(datos, ".test.csv");  
+        FileDatosPersonal.importarDatosPersonal(datos, ".alumnos.csv");  
         actualizarTablaAlumnos();
         
         this.vista.GetCsvCargarButton().addMouseListener(this);
@@ -38,13 +38,13 @@ public class Controlador implements MouseListener {
         //Leer actualizador de vista general alumnos
         this.vista.getVistaAlumnoBtn().addMouseListener(this);
         this.vista.getAgregarAlumnoP().getAcceptButton().addMouseListener(this);
-        
+        this.vista.getVistaMallasP().getAcceptButton().addMouseListener(this);
         this.vista.setVisible(true);
     }
     
     public void importarAlCerrar() throws Exception
     {
-        FileDatosPersonal.exportarDatosPersonal(datos,".test.csv");
+        FileDatosPersonal.exportarDatosPersonal(datos,"./.");
     }
     public void mouseClicked(MouseEvent event){
         
@@ -71,6 +71,12 @@ public class Controlador implements MouseListener {
            
            agregarAlumnosEvent();
        }
+       
+       if (event.getSource() == vista.getVistaMallasP().getAcceptButton())
+       {
+           System.out.println("Error hallando source");
+           actualizarTablaAsignaturas();
+       }
     }
     
     
@@ -86,6 +92,24 @@ public class Controlador implements MouseListener {
         System.out.println("Exit");
     }
     
+    private void actualizarTablaAsignaturas()
+    {
+        System.out.println("Error en actualizar");
+        String mallaId = vista.getVistaMallasP().getField();
+        
+        try {
+        Object[][] asignaturas = datos.getRowsMallas(mallaId);
+        vista.getVistaMallasP().cargarAsignaturas(asignaturas);
+        }
+        catch(EmptyTemplateException e)
+        {
+            JOptionPane.showMessageDialog(this.vista,"Verifica que exista la malla");
+        }
+        
+        
+        
+        
+    }
     private void OnExportarCsv(){
         
         JFileChooser fileChooser = new JFileChooser();

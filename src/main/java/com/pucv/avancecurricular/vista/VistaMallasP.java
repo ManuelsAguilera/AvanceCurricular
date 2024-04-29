@@ -4,6 +4,9 @@
  */
 package com.pucv.avancecurricular.vista;
 
+import javax.swing.JButton;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author manu
@@ -13,10 +16,39 @@ public class VistaMallasP extends javax.swing.JPanel {
     /**
      * Creates new form VistaMallasP
      */
+    private DefaultTableModel model;
     public VistaMallasP() {
+        model = new DefaultTableModel();
+        model.addColumn("Nombre Asignatura");
+        model.addColumn("Creditos");
+        model.addColumn("Profesor");
         initComponents();
     }
-
+    
+    private void resetModel()
+    {
+        for (int i=0; i < model.getRowCount(); i++)
+            model.removeRow(i);
+    }
+    public void cargarAsignaturas(Object[][] content)
+    {
+        resetModel();
+        for (Object[] row: content)
+        {
+            System.out.println((String) row[0]);
+            model.addRow(row);
+        }
+    }
+    
+    public String getField()
+    {
+        return mallaField.getText();
+    }
+    
+    public JButton getAcceptButton()
+    {
+        return mallaAcceptBtn;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,19 +58,89 @@ public class VistaMallasP extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        mallaField = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        mallaAcceptBtn = new javax.swing.JButton();
+
+        mallaField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mallaFieldActionPerformed(evt);
+            }
+        });
+
+        jTable1.setModel(this.model);
+        jScrollPane1.setViewportView(jTable1);
+
+        jLabel1.setText("Observar una malla");
+
+        jLabel2.setText("Nombre malla");
+
+        mallaAcceptBtn.setText("Seleccionar malla");
+        mallaAcceptBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mallaAcceptBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(mallaField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(mallaAcceptBtn, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(27, 27, 27))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(mallaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(mallaAcceptBtn)))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void mallaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mallaFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mallaFieldActionPerformed
+
+    private void mallaAcceptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mallaAcceptBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mallaAcceptBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JButton mallaAcceptBtn;
+    private javax.swing.JTextField mallaField;
     // End of variables declaration//GEN-END:variables
 }

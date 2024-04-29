@@ -89,7 +89,9 @@ public class DatosPersonal {
         return mallasDisp.keySet();
     }
     
-    public Malla getMalla(String mallaId) {
+    public Malla getMalla(String mallaId) throws EmptyTemplateException {
+        if (!mallasDisp.containsKey(mallaId))
+            throw new EmptyTemplateException();
         return mallasDisp.get(mallaId);
     }
     //añade una asignatura a una de las mallas de plantilla
@@ -161,5 +163,21 @@ public class DatosPersonal {
     
     return rowsAlumnos;
 }
+    public Object[][] getRowsMallas(String idMalla) throws EmptyTemplateException
+    {
+        Malla malla = getMalla(idMalla);
+        Object[][] rowsAsignaturas = new Object[malla.getListaAsignaturas().size()][3];
+        
+        int index=0;
+        for (Asignatura asignatura: malla.getListaAsignaturas())
+        {
+            
+            rowsAsignaturas[index][0] = asignatura.getRamo();
+            rowsAsignaturas[index][1] = asignatura.getCreditos();
+            rowsAsignaturas[index][2] = asignatura.getProfesor();
+            index++;
+        }
+        return rowsAsignaturas;
+    }
 
 }
