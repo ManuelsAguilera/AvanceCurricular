@@ -43,24 +43,16 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         PanelButtons = new javax.swing.JPanel();
         vistaGeneralAlumnos = new javax.swing.JButton();
-        AgregarAlumnos = new javax.swing.JButton();
+        agregarAlumnos = new javax.swing.JButton();
         administrarAvanceAlumno = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        agregarMalla = new javax.swing.JButton();
+        editarMalla = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         optionsPane = new javax.swing.JTabbedPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         archivoMenuButton = new javax.swing.JMenu();
         csvMenuItemExportar = new javax.swing.JMenuItem();
         csvMenuItemCargar = new javax.swing.JMenuItem();
-        mallaMenuButton = new javax.swing.JMenu();
-        mallaMenuItemVerMalla = new javax.swing.JMenuItem();
-        mallaMenuItemAgregarMalla = new javax.swing.JMenuItem();
-        mallaMenuItemAgragarAsig = new javax.swing.JMenuItem();
-        mallaMenuItemQuitarMalla = new javax.swing.JMenuItem();
-        alumnosMenuButton = new javax.swing.JMenu();
-        alumnoMenuItemAgregarAlumno = new javax.swing.JMenuItem();
-        alumnoMenuItemAvance = new javax.swing.JMenuItem();
 
         jLabel1.setText("jLabel1");
 
@@ -91,10 +83,10 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
             }
         });
 
-        AgregarAlumnos.setText("Agregar alumnos");
-        AgregarAlumnos.addActionListener(new java.awt.event.ActionListener() {
+        agregarAlumnos.setText("Agregar alumnos");
+        agregarAlumnos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgregarAlumnosActionPerformed(evt);
+                agregarAlumnosActionPerformed(evt);
             }
         });
 
@@ -105,17 +97,17 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Agregar Malla");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        agregarMalla.setText("Agregar Malla");
+        agregarMalla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                agregarMallaActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Editar malla");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        editarMalla.setText("Editar malla");
+        editarMalla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                editarMallaActionPerformed(evt);
             }
         });
 
@@ -134,10 +126,10 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(PanelButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(editarMalla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(agregarMalla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(administrarAvanceAlumno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(AgregarAlumnos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(agregarAlumnos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(vistaGeneralAlumnos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -147,13 +139,13 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(vistaGeneralAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AgregarAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(agregarAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(administrarAvanceAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(agregarMalla, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(editarMalla, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(207, Short.MAX_VALUE))
@@ -195,57 +187,6 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
         archivoMenuButton.add(csvMenuItemCargar);
 
         jMenuBar1.add(archivoMenuButton);
-
-        mallaMenuButton.setText("Mallas");
-
-        mallaMenuItemVerMalla.setText("Ver mallas");
-        mallaMenuItemVerMalla.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mallaMenuItemVerMallaActionPerformed(evt);
-            }
-        });
-        mallaMenuButton.add(mallaMenuItemVerMalla);
-
-        mallaMenuItemAgregarMalla.setText("Agregar malla");
-        mallaMenuItemAgregarMalla.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mallaMenuItemAgregarMallaActionPerformed(evt);
-            }
-        });
-        mallaMenuButton.add(mallaMenuItemAgregarMalla);
-
-        mallaMenuItemAgragarAsig.setText("Agregar Asignaturas a malla");
-        mallaMenuItemAgragarAsig.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mallaMenuItemAgragarAsigActionPerformed(evt);
-            }
-        });
-        mallaMenuButton.add(mallaMenuItemAgragarAsig);
-
-        mallaMenuItemQuitarMalla.setText("Quitar malla");
-        mallaMenuItemQuitarMalla.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mallaMenuItemQuitarMallaActionPerformed(evt);
-            }
-        });
-        mallaMenuButton.add(mallaMenuItemQuitarMalla);
-
-        jMenuBar1.add(mallaMenuButton);
-
-        alumnosMenuButton.setText("Alumnos");
-
-        alumnoMenuItemAgregarAlumno.setText("Agregar alumno");
-        alumnosMenuButton.add(alumnoMenuItemAgregarAlumno);
-
-        alumnoMenuItemAvance.setText("Administrar avance ");
-        alumnoMenuItemAvance.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alumnoMenuItemAvanceActionPerformed(evt);
-            }
-        });
-        alumnosMenuButton.add(alumnoMenuItemAvance);
-
-        jMenuBar1.add(alumnosMenuButton);
 
         setJMenuBar(jMenuBar1);
 
@@ -291,23 +232,6 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void mallaMenuItemAgregarMallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mallaMenuItemAgregarMallaActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_mallaMenuItemAgregarMallaActionPerformed
-
-    private void mallaMenuItemQuitarMallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mallaMenuItemQuitarMallaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mallaMenuItemQuitarMallaActionPerformed
-
-    private void mallaMenuItemVerMallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mallaMenuItemVerMallaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mallaMenuItemVerMallaActionPerformed
-
-    private void alumnoMenuItemAvanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alumnoMenuItemAvanceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_alumnoMenuItemAvanceActionPerformed
     
     private void csvMenuItemExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_csvMenuItemExportarActionPerformed
 
@@ -318,32 +242,28 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
       
     }//GEN-LAST:event_csvMenuItemCargarActionPerformed
 
-    private void mallaMenuItemAgragarAsigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mallaMenuItemAgragarAsigActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mallaMenuItemAgragarAsigActionPerformed
-
     private void vistaGeneralAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vistaGeneralAlumnosActionPerformed
         optionsPane.setSelectedIndex(0);
     }//GEN-LAST:event_vistaGeneralAlumnosActionPerformed
 
-    private void AgregarAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarAlumnosActionPerformed
+    private void agregarAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarAlumnosActionPerformed
         optionsPane.setSelectedIndex(1);
 
-    }//GEN-LAST:event_AgregarAlumnosActionPerformed
+    }//GEN-LAST:event_agregarAlumnosActionPerformed
 
     private void administrarAvanceAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_administrarAvanceAlumnoActionPerformed
         optionsPane.setSelectedIndex(2);
     }//GEN-LAST:event_administrarAvanceAlumnoActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void agregarMallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarMallaActionPerformed
         // TODO add your handling code here:
         optionsPane.setSelectedIndex(3);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_agregarMallaActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void editarMallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarMallaActionPerformed
         // TODO add your handling code here:
         optionsPane.setSelectedIndex(4);
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_editarMallaActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
@@ -393,30 +313,65 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
         return csvMenuItemExportar;
     }
 
+    public JButton[] getPanelButtons()
+    {
+        JButton[] list = {this.agregarAlumnos,this.administrarAvanceAlumno,this.vistaGeneralAlumnos,
+                        this.agregarMalla};
+        
+        return list;
+        
+    }
+    
+    public JButton getVistaAlumno()
+    {
+        return vistaGeneralAlumnos;
+    }
+    public JButton getAdministrarAvanceAlumno() {
+        return administrarAvanceAlumno;
+    }
+
+    public JButton getAgregarAlumnos() {
+        return agregarAlumnos;
+    }
+
+    public JButton getAgregarMalla() {
+        return agregarMalla;
+    }
+
+    public JButton getEditarMalla() {
+        return editarMalla;
+    }
+    
+    public void updateModel(Object[][] content)
+    {
+        VistaAlumnosP tableFrame = (VistaAlumnosP)this.optionsPane.getComponent(0);
+        tableFrame.resetRows();
+        for (Object[] row: content)
+        {
+            tableFrame.addRow(row);
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AgregarAlumnos;
     private javax.swing.JPanel PanelButtons;
     private javax.swing.JButton administrarAvanceAlumno;
-    private javax.swing.JMenuItem alumnoMenuItemAgregarAlumno;
-    private javax.swing.JMenuItem alumnoMenuItemAvance;
-    private javax.swing.JMenu alumnosMenuButton;
+    private javax.swing.JButton agregarAlumnos;
+    private javax.swing.JButton agregarMalla;
     private javax.swing.JMenu archivoMenuButton;
     private javax.swing.JMenuItem csvMenuItemCargar;
     private javax.swing.JMenuItem csvMenuItemExportar;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton editarMalla;
     private javax.swing.JButton jButton6;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel label;
-    private javax.swing.JMenu mallaMenuButton;
-    private javax.swing.JMenuItem mallaMenuItemAgragarAsig;
-    private javax.swing.JMenuItem mallaMenuItemAgregarMalla;
-    private javax.swing.JMenuItem mallaMenuItemQuitarMalla;
-    private javax.swing.JMenuItem mallaMenuItemVerMalla;
     private javax.swing.JTabbedPane optionsPane;
     private javax.swing.JButton vistaGeneralAlumnos;
     // End of variables declaration//GEN-END:variables
+
+    //Getters:
+    
+
 }

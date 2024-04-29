@@ -47,65 +47,6 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="mallaMenuButton">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Mallas"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="mallaMenuItemVerMalla">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Ver mallas"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mallaMenuItemVerMallaActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="mallaMenuItemAgregarMalla">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Agregar malla"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mallaMenuItemAgregarMallaActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="mallaMenuItemAgragarAsig">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Agregar Asignaturas a malla"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mallaMenuItemAgragarAsigActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="mallaMenuItemQuitarMalla">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Quitar malla"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mallaMenuItemQuitarMallaActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="alumnosMenuButton">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Alumnos"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="alumnoMenuItemAgregarAlumno">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Agregar alumno"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="alumnoMenuItemAvance">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Administrar avance "/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alumnoMenuItemAvanceActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
       </SubComponents>
     </Menu>
   </NonVisualComponents>
@@ -210,10 +151,10 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jButton6" max="32767" attributes="0"/>
-                          <Component id="jButton5" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jButton4" alignment="1" max="32767" attributes="0"/>
+                          <Component id="editarMalla" alignment="1" max="32767" attributes="0"/>
+                          <Component id="agregarMalla" alignment="1" max="32767" attributes="0"/>
                           <Component id="administrarAvanceAlumno" alignment="1" max="32767" attributes="0"/>
-                          <Component id="AgregarAlumnos" alignment="0" max="32767" attributes="0"/>
+                          <Component id="agregarAlumnos" alignment="0" max="32767" attributes="0"/>
                           <Component id="vistaGeneralAlumnos" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -226,13 +167,13 @@
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="vistaGeneralAlumnos" min="-2" pref="46" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="AgregarAlumnos" min="-2" pref="46" max="-2" attributes="0"/>
+                      <Component id="agregarAlumnos" min="-2" pref="46" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="administrarAvanceAlumno" min="-2" pref="46" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton4" min="-2" pref="46" max="-2" attributes="0"/>
+                      <Component id="agregarMalla" min="-2" pref="46" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton5" min="-2" pref="46" max="-2" attributes="0"/>
+                      <Component id="editarMalla" min="-2" pref="46" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButton6" min="-2" pref="46" max="-2" attributes="0"/>
                       <EmptySpace pref="207" max="32767" attributes="0"/>
@@ -249,12 +190,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vistaGeneralAlumnosActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="AgregarAlumnos">
+            <Component class="javax.swing.JButton" name="agregarAlumnos">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Agregar alumnos"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgregarAlumnosActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="agregarAlumnosActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="administrarAvanceAlumno">
@@ -265,20 +206,20 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="administrarAvanceAlumnoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton4">
+            <Component class="javax.swing.JButton" name="agregarMalla">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Agregar Malla"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="agregarMallaActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton5">
+            <Component class="javax.swing.JButton" name="editarMalla">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Editar malla"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editarMallaActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton6">

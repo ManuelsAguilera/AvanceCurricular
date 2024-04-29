@@ -12,6 +12,7 @@ import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
@@ -30,6 +31,10 @@ public class Controlador implements MouseListener {
         this.vista.GetCsvCargarButton().addMouseListener(this);
         this.vista.GetCsvExpotarButton().addMouseListener(this);
         
+        //Leer panel de botones
+        for (JButton btn : this.vista.getPanelButtons())
+            btn.addMouseListener(this);
+        
         this.vista.setVisible(true);
     }
     
@@ -45,6 +50,14 @@ public class Controlador implements MouseListener {
             OnCargarCsv();
         } else if (event.getSource() == vista.GetCsvExpotarButton()){
             OnExportarCsv();
+        }
+        else if (event.getSource() == vista.getVistaAlumno()) 
+        {
+            //Actualizar modelo de alumnos
+            Object[][] content = datos.getRowsAlumnos();
+            
+            this.vista.updateModel(content);
+            
         }
     }
     

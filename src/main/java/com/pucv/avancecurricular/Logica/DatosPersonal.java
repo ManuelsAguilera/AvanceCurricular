@@ -146,13 +146,20 @@ public class DatosPersonal {
         return mallasDisp.values();
     }
     
-    private Boolean parseRuta(String ruta) //TODO
-    {
-        return false;
+    public Object[][] getRowsAlumnos() {
+    Object[][] rowsAlumnos = new Object[mapaPersonal.size()][4]; // Inicializamos la matriz con el tamaño adecuado
+    
+    int index = 0;
+    for (HashMap.Entry<String, Alumno> entry : mapaPersonal.entrySet()) {
+        Alumno alumno = entry.getValue();
+        rowsAlumnos[index][0] = alumno.getNombre();
+        rowsAlumnos[index][1] = alumno.getRut();
+        rowsAlumnos[index][2] = alumno.getMalla().getMallaId();
+        rowsAlumnos[index][3] = alumno.calcularCreditosCursados();
+        index++;
     }
     
-    public Boolean cargarDatos(String ruta)
-    {
-        return false;
-    }
+    return rowsAlumnos;
+}
+
 }
