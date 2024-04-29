@@ -23,11 +23,15 @@ public class Controlador implements MouseListener {
     private AvanceCurricularSwing vista;
     private DatosPersonal datos;
     
-    Controlador(AvanceCurricularSwing vista){
+    Controlador(AvanceCurricularSwing vista) throws Exception{
         
-        datos = new DatosPersonal();
-        
+        this.datos = new DatosPersonal();
         this.vista = vista;
+        
+        
+        FileDatosPersonal.importarDatosPersonal(datos, ".test.csv");  
+        actualizarTablaAlumnos();
+        
         this.vista.GetCsvCargarButton().addMouseListener(this);
         this.vista.GetCsvExpotarButton().addMouseListener(this);
         
@@ -38,6 +42,10 @@ public class Controlador implements MouseListener {
         this.vista.setVisible(true);
     }
     
+    public void importarAlCerrar() throws Exception
+    {
+        FileDatosPersonal.exportarDatosPersonal(datos,".test.csv");
+    }
     public void mouseClicked(MouseEvent event){
         
         System.out.println("Click");
@@ -56,9 +64,7 @@ public class Controlador implements MouseListener {
        if (event.getSource() == vista.getVistaAlumnoBtn()) 
         {
             //Actualizar modelo de alumnos
-            Object[][] content = datos.getRowsAlumnos();
-            
-            this.vista.updateModel(content);
+            actualizarTablaAlumnos();
         }
        else if (event.getSource() == vista.getAgregarAlumnoP().getAcceptButton()){
            //boton de agregar un alumno
@@ -116,7 +122,12 @@ public class Controlador implements MouseListener {
         }
     }
     
-    
+    private void actualizarTablaAlumnos()
+    {
+        Object[][] content = datos.getRowsAlumnos();
+            
+        this.vista.updateModel(content);
+    }
     private void agregarAlumnosEvent()
     {
         Object[] datosAlumno = vista.getAgregarAlumnoP().getFields();
@@ -177,6 +188,9 @@ public class Controlador implements MouseListener {
             JOptionPane.showMessageDialog(this.vista, "Error al cargar archivo");
         }
     }
+    
+    
+    
             
 }
 

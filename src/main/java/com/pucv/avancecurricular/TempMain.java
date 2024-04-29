@@ -4,6 +4,7 @@
  */
 package com.pucv.avancecurricular;
 
+import com.pucv.avancecurricular.Logica.FileDatosPersonal;
 import com.pucv.avancecurricular.vista.AvanceCurricularSwing;
 
 /**
@@ -13,6 +14,13 @@ import com.pucv.avancecurricular.vista.AvanceCurricularSwing;
 public class TempMain {
     public static void main(String[] args){
         AvanceCurricularSwing vista = new AvanceCurricularSwing();
+        try {
         Controlador controlador = new Controlador(vista);
+        controlador.importarAlCerrar();
+        }
+        catch(Exception e)
+        {
+            return;
+        }
     }
 }
