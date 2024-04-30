@@ -41,6 +41,7 @@ public class Controlador implements MouseListener {
         this.vista.getAgregarMallaP().getAgregarBtn().addMouseListener(this);
         this.vista.getAgregarMallaP().getQuitarBtn().addMouseListener(this);
         this.vista.getVistaMallasP().getAcceptButton().addMouseListener(this);
+        this.vista.getAdministrarAvanceP().getDeelButton().addMouseListener(this);
         this.vista.setVisible(true);
     }
     
@@ -103,6 +104,12 @@ public class Controlador implements MouseListener {
        {
            System.out.println("Error hallando source");
            actualizarTablaAsignaturas();
+       }
+       if(event.getSource()==vista.getAdministrarAvanceP().getDeelButton())
+       {
+           deelAlumnoEvent();
+           System.out.println("eliminado");
+           
        }
     }
     
@@ -207,6 +214,15 @@ public class Controlador implements MouseListener {
         catch(Exception e)
         {
             JOptionPane.showMessageDialog(this.vista, "Error al cargar archivo");
+        }
+    }
+    private void deelAlumnoEvent()
+    {
+            String rut= vista.getAdministrarAvanceP().getRutfield();
+        try{
+            datos.removeAlumno(rut);
+        }catch(EmptyCollectionException e){
+            JOptionPane.showMessageDialog(this.vista,"no se encontro alumno");
         }
     }
     

@@ -179,13 +179,9 @@ public class AvanceCurricular {
                 
                 break;
             case 5:
-                if (datos.removeAlumno(rut))
-                {
-                    System.out.println("Removido correctamente\nVolviendo menu principal..");
-                    opcion=SALIDA;
-                }
-                else
-                    System.out.println("No existe el alumno, o hubo un error en el ingreso");
+                datos.removeAlumno(rut);
+                opcion=SALIDA;
+             
             }
             }
             catch(EmptyCollectionException e)

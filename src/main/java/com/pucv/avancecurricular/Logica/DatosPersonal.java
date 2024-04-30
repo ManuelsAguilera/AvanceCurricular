@@ -55,12 +55,12 @@ public class DatosPersonal {
     }
     
     // Remueve el valor y key de el hashmap alumnos
-    public boolean removeAlumno(String rut) {
-        if (mapaPersonal.containsKey(rut))
-            mapaPersonal.remove(rut); //if it exists it removes
-        
-        return true;
+    public void removeAlumno(String rut) throws EmptyCollectionException {
+    if (!mapaPersonal.containsKey(rut)) {
+        throw new EmptyCollectionException();
     }
+    mapaPersonal.remove(rut);
+}
     
     //Añade una instancia malla, a nuestro mapa de mallas asociandolo a un nombre
     //ej : "Ingenieria civil informatica 2020"::new Malla()

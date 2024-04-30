@@ -1,17 +1,17 @@
-/home/manu/Documentos/NetbeansProjects/AvanceCurricular/src/main/java/com/pucv/avancecurricular/Logica/Asignatura.java
-/home/manu/Documentos/NetbeansProjects/AvanceCurricular/src/main/java/com/pucv/avancecurricular/vista/AgregarAlumnoP.java
-/home/manu/Documentos/NetbeansProjects/AvanceCurricular/src/main/java/com/pucv/avancecurricular/AvanceCurricular.java
-/home/manu/Documentos/NetbeansProjects/AvanceCurricular/src/main/java/com/pucv/avancecurricular/vista/VistaAlumnosP.java
-/home/manu/Documentos/NetbeansProjects/AvanceCurricular/src/main/java/com/pucv/avancecurricular/vista/VistaMallasP.java
-/home/manu/Documentos/NetbeansProjects/AvanceCurricular/src/main/java/com/pucv/avancecurricular/Logica/FileDatosPersonal.java
-/home/manu/Documentos/NetbeansProjects/AvanceCurricular/src/main/java/com/pucv/avancecurricular/Logica/DatosPersonal.java
-/home/manu/Documentos/NetbeansProjects/AvanceCurricular/src/main/java/com/pucv/avancecurricular/vista/AgregarMallaP.java
-/home/manu/Documentos/NetbeansProjects/AvanceCurricular/src/main/java/com/pucv/avancecurricular/Logica/EmptyTemplateException.java
-/home/manu/Documentos/NetbeansProjects/AvanceCurricular/src/main/java/com/pucv/avancecurricular/Controlador.java
-/home/manu/Documentos/NetbeansProjects/AvanceCurricular/src/main/java/com/pucv/avancecurricular/TempMain.java
-/home/manu/Documentos/NetbeansProjects/AvanceCurricular/src/main/java/com/pucv/avancecurricular/vista/AdministrarAvanceP.java
-/home/manu/Documentos/NetbeansProjects/AvanceCurricular/src/main/java/com/pucv/avancecurricular/vista/EditarMallasP.java
-/home/manu/Documentos/NetbeansProjects/AvanceCurricular/src/main/java/com/pucv/avancecurricular/Logica/Malla.java
-/home/manu/Documentos/NetbeansProjects/AvanceCurricular/src/main/java/com/pucv/avancecurricular/Logica/EmptyCollectionException.java
-/home/manu/Documentos/NetbeansProjects/AvanceCurricular/src/main/java/com/pucv/avancecurricular/vista/AvanceCurricularSwing.java
-/home/manu/Documentos/NetbeansProjects/AvanceCurricular/src/main/java/com/pucv/avancecurricular/Logica/Alumno.java
+C:\Users\alfar\Desktop\proyecto avanzada\AvanceCurricular\src\main\java\com\pucv\avancecurricular\Logica\EmptyTemplateException.java
+C:\Users\alfar\Desktop\proyecto avanzada\AvanceCurricular\src\main\java\com\pucv\avancecurricular\Logica\EmptyCollectionException.java
+C:\Users\alfar\Desktop\proyecto avanzada\AvanceCurricular\src\main\java\com\pucv\avancecurricular\vista\AgregarMallaP.java
+C:\Users\alfar\Desktop\proyecto avanzada\AvanceCurricular\src\main\java\com\pucv\avancecurricular\TempMain.java
+C:\Users\alfar\Desktop\proyecto avanzada\AvanceCurricular\src\main\java\com\pucv\avancecurricular\Logica\Malla.java
+C:\Users\alfar\Desktop\proyecto avanzada\AvanceCurricular\src\main\java\com\pucv\avancecurricular\vista\AvanceCurricularSwing.java
+C:\Users\alfar\Desktop\proyecto avanzada\AvanceCurricular\src\main\java\com\pucv\avancecurricular\vista\VistaAlumnosP.java
+C:\Users\alfar\Desktop\proyecto avanzada\AvanceCurricular\src\main\java\com\pucv\avancecurricular\vista\VistaMallasP.java
+C:\Users\alfar\Desktop\proyecto avanzada\AvanceCurricular\src\main\java\com\pucv\avancecurricular\vista\AdministrarAvanceP.java
+C:\Users\alfar\Desktop\proyecto avanzada\AvanceCurricular\src\main\java\com\pucv\avancecurricular\AvanceCurricular.java
+C:\Users\alfar\Desktop\proyecto avanzada\AvanceCurricular\src\main\java\com\pucv\avancecurricular\vista\AgregarAlumnoP.java
+C:\Users\alfar\Desktop\proyecto avanzada\AvanceCurricular\src\main\java\com\pucv\avancecurricular\Controlador.java
+C:\Users\alfar\Desktop\proyecto avanzada\AvanceCurricular\src\main\java\com\pucv\avancecurricular\Logica\Alumno.java
+C:\Users\alfar\Desktop\proyecto avanzada\AvanceCurricular\src\main\java\com\pucv\avancecurricular\vista\EditarMallasP.java
+C:\Users\alfar\Desktop\proyecto avanzada\AvanceCurricular\src\main\java\com\pucv\avancecurricular\Logica\Asignatura.java
+C:\Users\alfar\Desktop\proyecto avanzada\AvanceCurricular\src\main\java\com\pucv\avancecurricular\Logica\DatosPersonal.java
+C:\Users\alfar\Desktop\proyecto avanzada\AvanceCurricular\src\main\java\com\pucv\avancecurricular\Logica\FileDatosPersonal.java
