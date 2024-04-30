@@ -22,6 +22,7 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
      */
     
     public AvanceCurricularSwing() {
+        this.setTitle("Administrador de alumnos y mallas");
         initComponents();
         
     }
