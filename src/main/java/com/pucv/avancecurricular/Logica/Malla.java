@@ -41,6 +41,18 @@ public class Malla {
         listaAsignaturas.add(asignatura);
     }
     
+    public void eliminarAsignatura(Asignatura asignatura) {
+        listaAsignaturas.remove(asignatura);
+    }
+    
+    public Asignatura getAsignatura(String asignatura){
+        for(Asignatura asig:listaAsignaturas){
+            if(asig.getRamo().equals(asignatura)){
+                return asig;
+            }
+        }
+        return null;   
+    }
     public void agregarAsignatura(String ramo, String profesor, int creditos,boolean estado) {
         
         listaAsignaturas.add(new Asignatura(ramo,profesor,creditos,estado));

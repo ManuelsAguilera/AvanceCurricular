@@ -45,7 +45,8 @@ public class Controlador implements MouseListener {
         this.vista.getAdministrarAvanceP().getMarcarAprobada().addMouseListener(this);
         this.vista.getAdministrarAvanceP().getMarcarNoAprobado().addMouseListener(this);
         this.vista.getAdministrarAvanceP().getVercred().addMouseListener(this);
-        
+        this.vista.getEditarMallasP().getAceptarElimninar().addMouseListener(this);
+        this.vista.getEditarMallasP().getAddButton().addMouseListener(this);
         this.vista.setVisible(true);
     }
     
@@ -122,6 +123,14 @@ public class Controlador implements MouseListener {
        }
        if(event.getSource()==vista.getAdministrarAvanceP().getVercred()){
            verAvanceEvent();
+       }
+       if(event.getSource()==vista.getEditarMallasP().getAceptarElimninar()){
+           eliminarAsignaturaEvent();
+           
+       }
+       if(event.getSource()==vista.getEditarMallasP().getAddButton()){
+           añadirAsignaturaEvent();
+           
        }
     }
     
@@ -273,7 +282,27 @@ public class Controlador implements MouseListener {
             JOptionPane.showMessageDialog(this.vista,"no se encontro alumno");
         }  
     }
+    private void eliminarAsignaturaEvent(){
+        String malla=vista.getEditarMallasP().getNombreMalla();
+        String asignatura=vista.getEditarMallasP().getNombreAñadir();  
+        try{
+            datos.removeAsignatura(malla, asignatura);
+        }catch(EmptyCollectionException e){
+            JOptionPane.showMessageDialog(this.vista,"error al eliminar");
+        }
+    }
     
+    private void añadirAsignaturaEvent(){
+        String malla=vista.getEditarMallasP().getNombreMalla();
+        String asignatura=vista.getEditarMallasP().getNombreAñadir(); 
+        String profesor=vista.getEditarMallasP().getNombreProfesor();
+        int creditos=vista.getEditarMallasP().getCreditos();
+        try{
+            datos.addAsignatura(malla,asignatura,profesor,creditos);
+        }catch(EmptyCollectionException e){
+            JOptionPane.showMessageDialog(this.vista,"error al añadir asignatura");
+        }
+    }
     private void OnCargarCsv() {
         //Importar archivo
         

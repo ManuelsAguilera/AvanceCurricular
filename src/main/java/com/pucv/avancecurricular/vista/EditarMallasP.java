@@ -4,6 +4,9 @@
  */
 package com.pucv.avancecurricular.vista;
 
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author manu
@@ -27,29 +30,157 @@ public class EditarMallasP extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        añadirNombre = new javax.swing.JTextField();
+        eliminarNombre = new javax.swing.JTextField();
+        aceptarAñadir = new javax.swing.JButton();
+        aceptarElimninar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        mallaNombre = new javax.swing.JTextField();
+        creditos = new javax.swing.JTextField();
+        profesorNombre = new javax.swing.JTextField();
 
         jLabel1.setText("Carga una malla, y edita");
+
+        añadirNombre.setText("asignatura");
+
+        eliminarNombre.setText("asignatura");
+
+        aceptarAñadir.setText("aceptar");
+
+        aceptarElimninar.setText("aceptar");
+
+        jLabel2.setText("nombre asignatura añadir");
+
+        jLabel3.setText("nombre asignatura eliminar");
+
+        jLabel4.setText("nombre malla a editar");
+
+        mallaNombre.setText("nombre malla");
+        mallaNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mallaNombreActionPerformed(evt);
+            }
+        });
+
+        creditos.setText("creditos");
+
+        profesorNombre.setText("profesor");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(eliminarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(aceptarElimninar)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(añadirNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(profesorNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(creditos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(aceptarAñadir))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(mallaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(120, 120, 120)
                 .addComponent(jLabel1)
-                .addContainerGap(247, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jLabel1)
-                .addContainerGap(347, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(mallaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(añadirNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(aceptarAñadir)
+                    .addComponent(jLabel2)
+                    .addComponent(creditos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(profesorNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(eliminarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(aceptarElimninar)
+                    .addComponent(jLabel3))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void mallaNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mallaNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mallaNombreActionPerformed
+    
+    public String getNombreMalla(){
+        String malla=mallaNombre.getText();
+        return malla;
+    }
+    public String getNombreAñadir(){
+        String asignatura=añadirNombre.getText();
+        return asignatura;
+    }
+    public String getNombreProfesor(){
+        String Profesor=profesorNombre.getText();
+        return Profesor;
+    }
+    public String getNombreEliminar(){
+        String asignatura=eliminarNombre.getText();
+        return asignatura;
+    }
+    
+    public JButton getAddButton(){
+        return aceptarAñadir;
+        
+    }
+    
+
+    public int getCreditos() {
+        String creditosS=creditos.getText();
+        int creditos = Integer.parseInt(creditosS);
+        return creditos;
+    }
+    
+    public JButton getAceptarElimninar() {
+        return aceptarElimninar;
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton aceptarAñadir;
+    private javax.swing.JButton aceptarElimninar;
+    private javax.swing.JTextField añadirNombre;
+    private javax.swing.JTextField creditos;
+    private javax.swing.JTextField eliminarNombre;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JTextField mallaNombre;
+    private javax.swing.JTextField profesorNombre;
     // End of variables declaration//GEN-END:variables
 }

@@ -335,6 +335,11 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
         return (AgregarMallaP) this.optionsPane.getComponent(3);
     }
     
+    public EditarMallasP getEditarMallasP()
+    {
+        return (EditarMallasP) this.optionsPane.getComponent(4);
+    }
+    
     public VistaMallasP getVistaMallasP()
     {
         return (VistaMallasP) this.optionsPane.getComponent(5);
@@ -371,6 +376,8 @@ public class AvanceCurricularSwing extends javax.swing.JFrame {
     private javax.swing.JTabbedPane optionsPane;
     private javax.swing.JButton vistaGeneralAlumnos;
     // End of variables declaration//GEN-END:variables
+
+    
 
     //Getters:
     

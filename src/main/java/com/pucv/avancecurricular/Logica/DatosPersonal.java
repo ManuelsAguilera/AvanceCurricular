@@ -107,6 +107,17 @@ public class DatosPersonal {
         return true;
     }
     
+    
+    public boolean removeAsignatura(String mallaId, String asignatura)throws EmptyCollectionException {
+        if (!mallasDisp.containsKey(mallaId))
+            throw new EmptyCollectionException();
+        Malla malla = mallasDisp.get(mallaId);
+        Asignatura asigna=(Asignatura) malla.getAsignatura(asignatura);
+        malla.eliminarAsignatura(asigna);
+        return true;
+        
+    }
+    
     //marca una asignatura de un alumno como aprobado
     public void marcarAprobado(String rut, String nombreAsignatura) throws EmptyCollectionException{
         

@@ -8,6 +8,7 @@ com\pucv\avancecurricular\vista\AvanceCurricularSwing$5.class
 com\pucv\avancecurricular\Logica\EmptyCollectionException.class
 com\pucv\avancecurricular\vista\AvanceCurricularSwing$8.class
 com\pucv\avancecurricular\vista\AdministrarAvanceP$3.class
+com\pucv\avancecurricular\vista\EditarMallasP$1.class
 com\pucv\avancecurricular\vista\AgregarMallaP$2.class
 com\pucv\avancecurricular\vista\EditarMallasP.class
 com\pucv\avancecurricular\Logica\FileDatosPersonal.class
