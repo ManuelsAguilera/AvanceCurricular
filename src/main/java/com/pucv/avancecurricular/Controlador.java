@@ -42,6 +42,10 @@ public class Controlador implements MouseListener {
         this.vista.getAgregarMallaP().getQuitarBtn().addMouseListener(this);
         this.vista.getVistaMallasP().getAcceptButton().addMouseListener(this);
         this.vista.getAdministrarAvanceP().getDeelButton().addMouseListener(this);
+        this.vista.getAdministrarAvanceP().getMarcarAprobada().addMouseListener(this);
+        this.vista.getAdministrarAvanceP().getMarcarNoAprobado().addMouseListener(this);
+        this.vista.getAdministrarAvanceP().getVercred().addMouseListener(this);
+        
         this.vista.setVisible(true);
     }
     
@@ -109,7 +113,15 @@ public class Controlador implements MouseListener {
        {
            deelAlumnoEvent();
            System.out.println("eliminado");
-           
+       }
+       if(event.getSource()==vista.getAdministrarAvanceP().getMarcarNoAprobado()){  
+            marcarNoAprobadoEvent();
+       }
+       if(event.getSource()==vista.getAdministrarAvanceP().getMarcarAprobada()){
+           marcarAprobadoEvent();
+       }
+       if(event.getSource()==vista.getAdministrarAvanceP().getVercred()){
+           verAvanceEvent();
        }
     }
     
@@ -186,6 +198,7 @@ public class Controlador implements MouseListener {
             
         this.vista.updateModel(content);
     }
+    
     private void agregarAlumnosEvent()
     {
         Object[] datosAlumno = vista.getAgregarAlumnoP().getFields();
@@ -216,6 +229,7 @@ public class Controlador implements MouseListener {
             JOptionPane.showMessageDialog(this.vista, "Error al cargar archivo");
         }
     }
+    
     private void deelAlumnoEvent()
     {
             String rut= vista.getAdministrarAvanceP().getRutfield();
@@ -224,6 +238,40 @@ public class Controlador implements MouseListener {
         }catch(EmptyCollectionException e){
             JOptionPane.showMessageDialog(this.vista,"no se encontro alumno");
         }
+    }
+    
+    private void marcarAprobadoEvent()
+    {
+        String rut= vista.getAdministrarAvanceP().getRutfield();
+        String asignatura=vista.getAdministrarAvanceP().getAsignaturaAfield();
+       try{
+           datos.marcarAprobado(rut,asignatura);
+           
+       }catch(EmptyCollectionException e){
+           JOptionPane.showMessageDialog(this.vista,"no se encontro asignatura o rut");
+       }
+    }
+    
+    private void marcarNoAprobadoEvent()
+    {
+        String rut= vista.getAdministrarAvanceP().getRutfield();
+        String asignatura=vista.getAdministrarAvanceP().getNombreNoaprodado();
+       try{
+           datos.marcarNoAprobado(rut,asignatura);
+       }catch(EmptyCollectionException e){
+           JOptionPane.showMessageDialog(this.vista,"no se encontro asignatura o rut");
+       }
+    }
+    
+    private void verAvanceEvent(){
+        String rut= vista.getAdministrarAvanceP().getRutfield();
+        try{
+            Alumno alumno=(Alumno)datos.getAlumno(rut);
+            int cred=alumno.calcularCreditosCursados();
+            JOptionPane.showMessageDialog(this.vista,cred);
+        }catch(EmptyCollectionException e){
+            JOptionPane.showMessageDialog(this.vista,"no se encontro alumno");
+        }  
     }
     
     private void OnCargarCsv() {

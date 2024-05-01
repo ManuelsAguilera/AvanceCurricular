@@ -5,6 +5,7 @@
 package com.pucv.avancecurricular.vista;
 
 import javax.swing.JButton;
+import javax.swing.JTextField;
 
 /**
  *
@@ -30,51 +31,194 @@ public class AdministrarAvanceP extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         acceptDel = new javax.swing.JButton();
-        rutToDel = new javax.swing.JTextField();
+        rutAlumn = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        nombreAsigA = new javax.swing.JTextField();
+        marcarAprobada = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        nombreNoAprobada = new javax.swing.JTextField();
+        marcarNoAprobado = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        vercred = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         jLabel1.setText("eliminar alumno");
 
         acceptDel.setText("aceptar");
 
-        rutToDel.setText("jTextField1");
+        rutAlumn.setText("rut alumno ");
+        rutAlumn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rutAlumnActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("marcar asignatura como aprobada");
+
+        nombreAsigA.setText("nombre asignatura");
+        nombreAsigA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreAsigAActionPerformed(evt);
+            }
+        });
+
+        marcarAprobada.setText("aceptar");
+
+        jLabel4.setText("marcar no aprobada");
+
+        nombreNoAprobada.setText("nombre asignatura");
+        nombreNoAprobada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreNoAprobadaActionPerformed(evt);
+            }
+        });
+
+        marcarNoAprobado.setText("aceptar");
+
+        jLabel5.setText("menu administrar avance");
+
+        vercred.setText("aceptar");
+
+        jLabel6.setText("ver creditos");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(acceptDel)
+                        .addGap(13, 13, 13))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addGap(132, 132, 132))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(vercred)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(nombreNoAprobada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(marcarNoAprobado))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(nombreAsigA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(marcarAprobada)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                .addComponent(rutToDel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(acceptDel)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(rutAlumn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                .addGap(17, 17, 17)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rutAlumn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(acceptDel)
-                    .addComponent(rutToDel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(215, Short.MAX_VALUE))
+                    .addComponent(jLabel1))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(nombreAsigA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(marcarAprobada))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(nombreNoAprobada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(marcarNoAprobado))
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(vercred)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addContainerGap(70, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void nombreAsigAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreAsigAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombreAsigAActionPerformed
+
+    private void nombreNoAprobadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreNoAprobadaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombreNoAprobadaActionPerformed
+
+    private void rutAlumnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rutAlumnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rutAlumnActionPerformed
     public String getRutfield(){
-        String nombre=rutToDel.getText();
+        String nombre=rutAlumn.getText();
         return nombre;
     }
+
+    public String getAsignaturaAfield(){
+        String asignatura=nombreAsigA.getText();
+        return asignatura;
+    }
     
-    public JButton getDeelButton()
-        {
+    public JButton getDeelButton(){
+        
             return acceptDel;
-        }
+    }
+    
+    public String getNombreNoaprodado(){
+        String asignatura=nombreNoAprobada.getText();
+        return asignatura;
+    }
+    
+    public JButton getMarcarAprobada() {
+        return marcarAprobada;
+    }
+
+    public JButton getMarcarNoAprobado() {
+        return marcarNoAprobado;
+    }
+
+    public JButton getVercred() {
+        return vercred;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton acceptDel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField rutToDel;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton marcarAprobada;
+    private javax.swing.JButton marcarNoAprobado;
+    private javax.swing.JTextField nombreAsigA;
+    private javax.swing.JTextField nombreNoAprobada;
+    private javax.swing.JTextField rutAlumn;
+    private javax.swing.JButton vercred;
     // End of variables declaration//GEN-END:variables
 }
