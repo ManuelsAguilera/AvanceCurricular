@@ -1,7 +1,9 @@
 package com.pucv.avancecurricular.Logica;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -161,20 +163,44 @@ public class DatosPersonal {
     }
     
     public Object[][] getRowsAlumnos() {
-    Object[][] rowsAlumnos = new Object[mapaPersonal.size()][4]; // Inicializamos la matriz con el tamaño adecuado
-    
-    int index = 0;
-    for (HashMap.Entry<String, Alumno> entry : mapaPersonal.entrySet()) {
-        Alumno alumno = entry.getValue();
-        rowsAlumnos[index][0] = alumno.getNombre();
-        rowsAlumnos[index][1] = alumno.getRut();
-        rowsAlumnos[index][2] = alumno.getMalla().getMallaId();
-        rowsAlumnos[index][3] = alumno.calcularCreditosCursados();
-        index++;
+        Object[][] rowsAlumnos = new Object[mapaPersonal.size()][4]; // Inicializamos la matriz con el tamaño adecuado
+
+        int index = 0;
+        for (HashMap.Entry<String, Alumno> entry : mapaPersonal.entrySet()) {
+            Alumno alumno = entry.getValue();
+            rowsAlumnos[index][0] = alumno.getNombre();
+            rowsAlumnos[index][1] = alumno.getRut();
+            rowsAlumnos[index][2] = alumno.getMalla().getMallaId();
+            rowsAlumnos[index][3] = alumno.calcularCreditosCursados();
+            index++;
+        }
+        return rowsAlumnos;
     }
     
-    return rowsAlumnos;
-}
+    public Object[][] getRowsAlumnosPorMalla(String nombreMalla) throws EmptyTemplateException {
+        List<Alumno> alumnosEnMalla = new ArrayList<>();
+
+        for (Alumno alumno : mapaPersonal.values()) {
+            if (alumno.getMalla().getMallaId().equals(nombreMalla)) {
+                alumnosEnMalla.add(alumno);
+            }
+        }
+
+        Object[][] rowsAlumnos = new Object[alumnosEnMalla.size()][4];
+
+        int index = 0;
+        for (Alumno alumno : alumnosEnMalla) {
+            rowsAlumnos[index][0] = alumno.getNombre();
+            rowsAlumnos[index][1] = alumno.getRut();
+            rowsAlumnos[index][2] = alumno.getMalla().getMallaId();
+            rowsAlumnos[index][3] = alumno.calcularCreditosCursados();
+            index++;
+        }
+
+        return rowsAlumnos;
+    }
+    
+    
     public Object[][] getRowsMallas(String idMalla) throws EmptyTemplateException
     {
         Malla malla = getMalla(idMalla);
@@ -191,5 +217,6 @@ public class DatosPersonal {
         }
         return rowsAsignaturas;
     }
+    
 
 }

@@ -208,6 +208,11 @@ public class Controlador implements MouseListener {
         this.vista.updateModel(content);
     }
     
+    private void filtradoTablaAlumnos(){
+        Object[][] content = datos.getRowsAlumnos();
+        this.vista.updateModel(content);
+    }
+    
     private void agregarAlumnosEvent()
     {
         Object[] datosAlumno = vista.getAgregarAlumnoP().getFields();
@@ -242,6 +247,7 @@ public class Controlador implements MouseListener {
     private void deelAlumnoEvent()
     {
             String rut= vista.getAdministrarAvanceP().getRutfield();
+            JOptionPane.showMessageDialog(this.vista,"Alumno eliminado con exito");
         try{
             datos.removeAlumno(rut);
         }catch(EmptyCollectionException e){
@@ -255,6 +261,7 @@ public class Controlador implements MouseListener {
         String asignatura=vista.getAdministrarAvanceP().getAsignaturaAfield();
        try{
            datos.marcarAprobado(rut,asignatura);
+           JOptionPane.showMessageDialog(this.vista,"marcada aprobada con exito");
            
        }catch(EmptyCollectionException e){
            JOptionPane.showMessageDialog(this.vista,"no se encontro asignatura o rut");
@@ -265,6 +272,7 @@ public class Controlador implements MouseListener {
     {
         String rut= vista.getAdministrarAvanceP().getRutfield();
         String asignatura=vista.getAdministrarAvanceP().getNombreNoaprodado();
+        JOptionPane.showMessageDialog(this.vista,"marcar no aprobado con exito");
        try{
            datos.marcarNoAprobado(rut,asignatura);
        }catch(EmptyCollectionException e){
@@ -277,7 +285,7 @@ public class Controlador implements MouseListener {
         try{
             Alumno alumno=(Alumno)datos.getAlumno(rut);
             int cred=alumno.calcularCreditosCursados();
-            JOptionPane.showMessageDialog(this.vista,cred);
+            JOptionPane.showMessageDialog(this.vista,"creditos alumno:"+cred);
         }catch(EmptyCollectionException e){
             JOptionPane.showMessageDialog(this.vista,"no se encontro alumno");
         }  
@@ -285,6 +293,7 @@ public class Controlador implements MouseListener {
     private void eliminarAsignaturaEvent(){
         String malla=vista.getEditarMallasP().getNombreMalla();
         String asignatura=vista.getEditarMallasP().getNombreAñadir();  
+        JOptionPane.showMessageDialog(this.vista,"asignatura eliminada");
         try{
             datos.removeAsignatura(malla, asignatura);
         }catch(EmptyCollectionException e){
@@ -299,6 +308,7 @@ public class Controlador implements MouseListener {
         int creditos=vista.getEditarMallasP().getCreditos();
         try{
             datos.addAsignatura(malla,asignatura,profesor,creditos);
+            JOptionPane.showMessageDialog(this.vista,"asignatura añadida");
         }catch(EmptyCollectionException e){
             JOptionPane.showMessageDialog(this.vista,"error al añadir asignatura");
         }
