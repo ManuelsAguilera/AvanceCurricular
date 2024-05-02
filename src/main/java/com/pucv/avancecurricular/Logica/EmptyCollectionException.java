@@ -5,7 +5,8 @@
 package com.pucv.avancecurricular.Logica;
 
 /**
- *
+ * Excepción para cuando una colleción esta vacía
+ * 
  * @author magui
  */
 public class EmptyCollectionException extends Exception {

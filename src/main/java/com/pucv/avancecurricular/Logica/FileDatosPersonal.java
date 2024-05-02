@@ -13,25 +13,30 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
-
 /**
- *
+ * Clase para cargar datos desde un csv con un formato apropiado.
+ * Solo tiene metodos estaticos.
+ * 
  * @author magui
- * 
- * Esta clase esta hecha para cargar datos desde un csv con formato apropiado.
- * 
  */
-public class FileDatosPersonal {
 
-    
+public class FileDatosPersonal {
+ 
    private FileDatosPersonal()  
-    {
+   {
                 
         
-    }
+   }
    
-   
-
+   /**
+    * Exporta un Objeto DatosPersonal a la ruta especificada.
+    * En formato CSV.
+    * 
+    * @param datos Objeto DatosPersonal a exportar
+    * @param ruta Lugar donde guardar.
+    * @throws UnsupportedEncodingException
+    * @throws FileNotFoundException 
+    */
    
    public static void exportarDatosPersonal(DatosPersonal datos,String ruta) throws UnsupportedEncodingException,FileNotFoundException{
         PrintWriter writer = null;
@@ -62,6 +67,14 @@ public class FileDatosPersonal {
 
 
     }
+   
+   /**
+    * Importa un CSV a un Objeto DatosPersonal.
+    * 
+    * @param datos Objeto DatosPersonal a importar.
+    * @param csvFile Ruta del archivo csv.
+    * @throws EmptyTemplateException 
+    */
    
    public static void importarDatosPersonal(DatosPersonal datos, String csvFile) throws EmptyTemplateException {
         String line = "";
@@ -112,8 +125,4 @@ public class FileDatosPersonal {
             e.printStackTrace();
         }
     }
-
-   
-
-    
 }

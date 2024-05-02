@@ -5,7 +5,9 @@
 package com.pucv.avancecurricular.Logica;
 
 /**
- *
+ *  Exepeción para cuando no existe una malla o no hay
+ *  ninguna malla.
+ * 
  * @author magui
  */
 public class EmptyTemplateException extends Exception {
