@@ -8,11 +8,11 @@ import java.util.Set;
 import java.util.TreeMap;
 
 /*
- * @author manu
- *
  * Esta clase accede a la informacion sobre la malla curricular de alumnos.
  * En un futuro podria ser implementado informacion sobre los profesores, o 
  * informacion de los alumnos desde las mallas o carreras.
+ *
+ * @author manu
  */
 
 public class DatosPersonal {
@@ -20,12 +20,25 @@ public class DatosPersonal {
     private HashMap<String, Alumno> mapaPersonal ;
     private TreeMap<String, Malla>  mallasDisp;
     
+    /**
+     * Constructor de la clase DatosPersonal
+     */
+    
     public DatosPersonal() {
         mapaPersonal = new HashMap<String, Alumno>();
         mallasDisp   = new TreeMap<String, Malla>();
     }
     
-    //Añade un alumno al HashMap, solo si es que se le puede asociar una malla a este.
+    /**
+     * Metodo que añade un alumno al HashMap, solo si es que se le puede asociar una malla a este.
+     * 
+     * @param nombre   Nombre del alumno.
+     * @param rut      RUT del alumno.
+     * @param mallaId  Nombre de la malla.
+     * @return Devuelve true si la operación es exitosa.
+     * @throws EmptyTemplateException 
+     */
+    
     public boolean addAlumno(String nombre, String rut, String mallaId) throws EmptyTemplateException{
         
         if (mallasDisp.isEmpty())
@@ -36,6 +49,14 @@ public class DatosPersonal {
         
         return true;
     }
+    
+    /**
+     * Metodo que añade un alumno al HashMap, solo si es que se le puede asociar una malla a este.
+     * 
+     * @param alumno Alumno a insertar.
+     * @return Devuelve true si la operación es exitosa.
+     * @throws EmptyTemplateException 
+     */
     
     public boolean addAlumno(Alumno alumno) throws EmptyTemplateException {
         
@@ -48,6 +69,14 @@ public class DatosPersonal {
         return true;
     }
     
+    /**
+     * Metodo para conseguir.
+     * 
+     * @param rut RUT del alumno.
+     * @return Devuelve el alumno.
+     * @throws EmptyCollectionException 
+     */
+    
     public Alumno getAlumno(String rut) throws EmptyCollectionException{
         
         if (!mapaPersonal.containsKey(rut))
@@ -56,28 +85,56 @@ public class DatosPersonal {
         return mapaPersonal.get(rut);
     }
     
-    // Remueve el valor y key de el hashmap alumnos
-    public void removeAlumno(String rut) throws EmptyCollectionException {
-    if (!mapaPersonal.containsKey(rut)) {
-        throw new EmptyCollectionException();
-    }
-    mapaPersonal.remove(rut);
-}
+    /**
+     * Metodo para remover el valor y key de el hashmap alumnos
+     * 
+     * @param rut RUT del alumno a remover
+     * @throws EmptyCollectionException 
+     */
     
-    //Añade una instancia malla, a nuestro mapa de mallas asociandolo a un nombre
-    //ej : "Ingenieria civil informatica 2020"::new Malla()
+    public void removeAlumno(String rut) throws EmptyCollectionException {
+        if (!mapaPersonal.containsKey(rut)) {
+            throw new EmptyCollectionException();
+        }
+        
+        mapaPersonal.remove(rut);
+    }
+    
+    /**
+     * Añade una instancia malla, a nuestro mapa de mallas asociandolo a un nombre.
+     * Ejemplo: "Ingenieria civil informatica 2020"::new Malla.
+     * 
+     * @param malla Malla a añadir.
+     * @return Devuelve true si la operación es existosa.
+     */
+    
     public boolean addMalla(Malla malla) {
         mallasDisp.put(malla.getMallaId(),malla);
         
         return true;
     }
+    
+    /**
+     * Añade una malla por nombre de la misma.
+     * 
+     * @param mallaId Nombre de la malla
+     * @return Devuelve true si la operación es existosa
+     */
+    
     public boolean addMalla(String mallaId) {
         mallasDisp.put(mallaId, new Malla(mallaId));
         
         return true;
     }
     
-    //quita la malla del mapa, eliminando clave y valor.
+    /**
+     * Metodo para quitar la malla del mapa, eliminando clave y valor.
+     * 
+     * @param mallaId Nombre de la malla.
+     * @return Devuelve true si la operación es existosa
+     * @throws EmptyTemplateException 
+     */
+    
     public boolean removeMalla(String mallaId) throws EmptyTemplateException {
         if (!mallasDisp.containsKey(mallaId))
             throw new EmptyTemplateException();
@@ -87,17 +144,41 @@ public class DatosPersonal {
         return true;
     }
     
-    //Devuelve un set de strings, con el nombre de las mallas
+    /**
+     * Metodo que devuelve un set de strings, con el nombre de las mallas.
+     * 
+     * @return Retorna el set de mallas
+     */
+    
     public Set getMallas() {
         return mallasDisp.keySet();
     }
+    
+    /**
+     * Metodo que consigue una malla, por su nombre.
+     * 
+     * @param mallaId Nombre de la malla.
+     * @return Malla con el nombre de parametro.
+     * @throws EmptyTemplateException .
+     */
     
     public Malla getMalla(String mallaId) throws EmptyTemplateException {
         if (!mallasDisp.containsKey(mallaId))
             throw new EmptyTemplateException();
         return mallasDisp.get(mallaId);
     }
-    //añade una asignatura a una de las mallas de plantilla
+    
+    /**
+     * Añade una asignatura a una de las mallas de plantilla.
+     * 
+     * @param mallaId Nombre de la malla.
+     * @param ramo Nombre del ramo.
+     * @param profesor Nombre del profesor.
+     * @param creditos Cantidad de creditos que vale la asignatura.
+     * @return Devuelve true si la operación es existosa.
+     * @throws EmptyCollectionException 
+     */
+    
     public boolean addAsignatura(String mallaId, String ramo, String profesor, int creditos) throws EmptyCollectionException {
         
         if (!mallasDisp.containsKey(mallaId))
@@ -109,18 +190,34 @@ public class DatosPersonal {
         return true;
     }
     
+    /**
+     * Remueve una asignatura
+     * 
+     * @param mallaId
+     * @param asignatura
+     * @return Devuelve true si la operación es existosa.
+     * @throws EmptyCollectionException 
+     */
     
-    public boolean removeAsignatura(String mallaId, String asignatura)throws EmptyCollectionException {
+    public boolean removeAsignatura(String mallaId, String asignatura) throws EmptyCollectionException {
         if (!mallasDisp.containsKey(mallaId))
             throw new EmptyCollectionException();
+        
         Malla malla = mallasDisp.get(mallaId);
         Asignatura asigna=(Asignatura) malla.getAsignatura(asignatura);
         malla.eliminarAsignatura(asigna);
-        return true;
         
+        return true;
     }
     
-    //marca una asignatura de un alumno como aprobado
+    /**
+     * Metodo para marcar una asignatura de un alumno como aprobado.
+     * 
+     * @param rut RUT del alumno.
+     * @param nombreAsignatura Nombre de la asignatura.
+     * @throws EmptyCollectionException 
+     */
+    
     public void marcarAprobado(String rut, String nombreAsignatura) throws EmptyCollectionException{
         
         if(!mapaPersonal.containsKey(rut))
@@ -138,7 +235,14 @@ public class DatosPersonal {
         
     }
     
-    //marca una asignatura de un alumno como reprobado
+    /**
+     * Metodo para marcar  una asignatura de un alumno como reprobado.
+     * 
+     * @param rut RUT del alumno.
+     * @param nombreAsignatura Nombre de la asignatura.
+     * @throws EmptyCollectionException 
+     */
+    
     public void marcarNoAprobado(String rut , String nombreAsignatura) throws EmptyCollectionException{
         
         if(!mapaPersonal.containsKey(rut))
@@ -153,14 +257,32 @@ public class DatosPersonal {
             }
         }
     }
-
+    
+    /**
+     * Metodos para conseguir todos los alumnos.
+     * 
+     * @return Devuelve los valores de los alumnos.
+     */
+    
     public Collection<Alumno> getAlumnos() {
         return mapaPersonal.values();
     }
     
+    /**
+     * Metodos para conseguir todas las mallas.
+     * 
+     * @return Devuelve todos los valores mallas.
+     */
+    
     public Collection<Malla> getMalla2(){
         return mallasDisp.values();
     }
+    
+    /**
+     * Metodo para consegir un matriz de alumnos.
+     * 
+     * @return Matriz de alumnos.
+     */
     
     public Object[][] getRowsAlumnos() {
         Object[][] rowsAlumnos = new Object[mapaPersonal.size()][4]; // Inicializamos la matriz con el tamaño adecuado
@@ -177,6 +299,13 @@ public class DatosPersonal {
         return rowsAlumnos;
     }
     
+    /**
+     * Consigue los aluons por cada malla en forma de matriz
+     * 
+     * @param nombreMalla Nombre de la malla 
+     * @return Retorna una matriz de alumnos 
+     * @throws EmptyTemplateException 
+     */
     public Object[][] getRowsAlumnosPorMalla(String nombreMalla) throws EmptyTemplateException {
         List<Alumno> alumnosEnMalla = new ArrayList<>();
 
@@ -200,6 +329,13 @@ public class DatosPersonal {
         return rowsAlumnos;
     }
     
+    /**
+     * Metodo para conseguir una matiz de mallas
+     * 
+     * @param idMalla Nombre de la malla.
+     * @return Devuelve una matriz de alumnos.
+     * @throws EmptyTemplateException 
+     */
     
     public Object[][] getRowsMallas(String idMalla) throws EmptyTemplateException
     {
@@ -218,5 +354,4 @@ public class DatosPersonal {
         return rowsAsignaturas;
     }
     
-
 }
