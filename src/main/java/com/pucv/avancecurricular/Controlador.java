@@ -18,10 +18,23 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+/**
+ * Controlador de la aplicación.
+ * 
+ */
+
 public class Controlador implements MouseListener {
     
     private AvanceCurricularSwing vista;
     private DatosPersonal datos;
+    
+    /**
+     * Constructor del controlador, aquí es donde se asignan los
+     * MouseListener
+     * 
+     * @param vista Venta Swing
+     * @throws Exception 
+     */
     
     Controlador(AvanceCurricularSwing vista) throws Exception{
         
@@ -50,13 +63,25 @@ public class Controlador implements MouseListener {
         this.vista.setVisible(true);
     }
     
+    /**
+     * Importa datos ocultos al cerrar
+     * 
+     * @throws Exception 
+     */
+    
     public void importarAlCerrar() throws Exception
     {
         FileDatosPersonal.exportarDatosPersonal(datos,"./.");
     }
+    
+    /**
+     * No es usado.
+     * 
+     * @param event Evento.
+     */
+    
     public void mouseClicked(MouseEvent event){
-        
-        System.out.println("Click");
+ 
     }
     
     public void mousePressed(MouseEvent event){
@@ -134,17 +159,34 @@ public class Controlador implements MouseListener {
        }
     }
     
+    /**
+     * No es usado.
+     * 
+     * @param event Evento.
+     */
     
     public void mouseReleased(MouseEvent event){
-        System.out.println("Realease");
+        
     }
+    
+    /**
+     * No es usado.
+     * 
+     * @param event Evento.
+     */
     
     public void mouseEntered(MouseEvent event){
-        System.out.println("Enter");
+        
     }
     
+    /**
+     * No es usado.
+     * 
+     * @param event Evento.
+     */
+    
     public void mouseExited(MouseEvent event){
-        System.out.println("Exit");
+        
     }
     
     private void actualizarTablaAsignaturas()
@@ -160,11 +202,11 @@ public class Controlador implements MouseListener {
         {
             JOptionPane.showMessageDialog(this.vista,"Verifica que exista la malla");
         }
-        
-        
-        
-        
     }
+    
+    /**
+     * Abre la vista de exportar CSV
+     */
     private void OnExportarCsv(){
         
         JFileChooser fileChooser = new JFileChooser();
@@ -302,10 +344,12 @@ public class Controlador implements MouseListener {
     }
     
     private void añadirAsignaturaEvent(){
-        String malla=vista.getEditarMallasP().getNombreMalla();
-        String asignatura=vista.getEditarMallasP().getNombreAñadir(); 
-        String profesor=vista.getEditarMallasP().getNombreProfesor();
-        int creditos=vista.getEditarMallasP().getCreditos();
+        
+        String malla = vista.getEditarMallasP().getNombreMalla();
+        String asignatura = vista.getEditarMallasP().getNombreAñadir(); 
+        String profesor = vista.getEditarMallasP().getNombreProfesor();
+        int creditos = vista.getEditarMallasP().getCreditos();
+        
         try{
             datos.addAsignatura(malla,asignatura,profesor,creditos);
             JOptionPane.showMessageDialog(this.vista,"asignatura añadida");
@@ -313,6 +357,11 @@ public class Controlador implements MouseListener {
             JOptionPane.showMessageDialog(this.vista,"error al añadir asignatura");
         }
     }
+    
+    /**
+     * Abre la vista de cargar CSV
+     */
+    
     private void OnCargarCsv() {
         //Importar archivo
         
